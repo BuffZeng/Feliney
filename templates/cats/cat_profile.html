@@ -2,12 +2,29 @@
 {% load staticfiles %}
 
 <html>
+    
+    <head>
+        <title>Cat Profile</title>
+    </head>
+
+<meta charset="utf-8">
 <!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
+
+    body {
+    margin: 0;
+    }
+
     .header {
         font-size: 30px;
+        text-align: center;
+    }
+
+    .div {
+        margin-right: 50px;
+        margin-left: 50px;
     }
 
     .search-bar {
@@ -63,19 +80,16 @@
 
     .column-two {
         margin-top: 20px;
-        margin-right: 40px;
-        margin-left: 50px;
         float: left;
-        width: 40%;
+        width: 45%;
         padding: 15px;
         font-size: 18px;
     }
+
     .column-three {
         margin-top: 20px;
-        margin-right: 20px;
-        margin-left: 140px;
         float: left;
-        width: 20%;
+        width: 30%;
         padding: 15px;
         font-size: 18px;
     }
@@ -88,6 +102,8 @@
 
     .comment {
         float: left;
+        width: 100%;
+        
     }
 
     .comment h2 {
@@ -101,19 +117,20 @@
         margin-right: 80px;
         font-size: 17px;
         border-style: solid;
-        width: 1320px;
         height: 100px;
+        overflow: auto;
     }
 
-    .comment input[type=text] {
+    .comment textarea {
         padding: 10px;
         margin-top: 8px;
         margin-left: 80px;
         margin-right: 80px;
         font-size: 17px;
         border-style: solid;
-        width: 1320px;
+        width: 80%;
         height: 100px;
+        overflow: auto;
     }
 
     .comment button {
@@ -133,19 +150,16 @@
 
 </style>
 
-    <head>
-        <title>Cat Profile</title>
-    </head>
     <body>
         <div class="header">
-            <h1  style = "text-align:center">Feliney</h1>
+            <h1>Feliney</h1>
         </div>
         <div class="search-bar">
             <a class="active" href="home.html"><i class="fa fa-home"></i> Home</a>
             <a href="../users/login.html"><i class="fa fa-user"></i> Login</a>
             <a href="../users/index.html"><i class="fa fa-user"></i> User</a>
             <div class="search-container">
-                <form>
+                <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
@@ -211,8 +225,8 @@
             <p><i class="fa fa-user"></i> BuffZeng<br>
                 <br>&emsp;&emsp;Sooooo cute:)
             </p>
-            <form>
-                <input type="text" placeholder="Type your comment..." name="comment">
+            <form action="" method="post">
+                <textarea name="comment" placeholder="Type your comment..."></textarea>
                 <button type="submit">submit</button>
             </form>
         </div>
