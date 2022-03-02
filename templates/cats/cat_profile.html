@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .header {
+        font-size: 30px;
+    }
+
+    .search-bar {
+        width: 100%;
+        background-color: #4b4b4b;
+        overflow: auto;
+    }
+    
+    .search-bar a {
+        float: left;
+        text-align: center;
+        padding: 14px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    .search-bar a:hover {
+        background-color: rgb(39, 39, 39);
+    }
+    
+    .active {
+      background-color: #04AA6D;
+    }
+
+    .search-bar .search-container {
+        float: right;
+    }
+
+    .search-bar input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+        border: none;
+        width: 500px;
+    }
+
+    .search-bar .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-bar .search-container button:hover {
+        background: #ccc;
+    }
+
+    .column-two {
+        margin-top: 20px;
+        margin-right: 40px;
+        margin-left: 50px;
+        float: left;
+        width: 40%;
+        padding: 15px;
+        font-size: 18px;
+    }
+    .column-three {
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 140px;
+        float: left;
+        width: 20%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .comment {
+        float: left;
+    }
+
+    .comment h2 {
+        margin-left: 50px;
+        font-size: 30px;
+    }
+    .comment p {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        width: 1320px;
+        height: 100px;
+    }
+
+    .comment input[type=text] {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        width: 1320px;
+        height: 100px;
+    }
+
+    .comment button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 80px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .comment button:hover {
+        background: #ccc;
+    }
+
+</style>
+
+    <head>
+        <title>Cat Profile</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1  style = "text-align:center">Feliney</h1>
+        </div>
+        <div class="search-bar">
+            <a class="active" href="home.html"><i class="fa fa-home"></i> Home</a>
+            <a href="../users/login.html"><i class="fa fa-user"></i> Login</a>
+            <a href="../users/index.html"><i class="fa fa-user"></i> User</a>
+            <div class="search-container">
+                <form>
+                    <input type="text" placeholder="Search..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column-two">
+                <img class="cat-img" src="/media/British-Shorthair.png" alt="Picture of British Shorthair." width="640" height="360"/>
+            </div>
+
+            <div class="column-two">
+                <p><b>Name:</b> 
+                    British Shorthair
+                </p>
+                <p><b>Range:</b> 
+                    around £1200
+                </p>
+                <p><b>Description:</b> 
+                    The British Shorthair is a relatively powerful-looking large cat, having a broad chest, strong thick-set legs with rounded 
+                    paws and a medium-length, blunt-tipped tail. The head is relatively large and rounded, with a short muzzle, broad cheeks 
+                    (most noticeable in mature males, who tend to develop prominent jowls) and large round eyes that are deep coppery orange 
+                    in the British Blue and otherwise vary in colour depending on the coat. Their large ears are broad and widely set. 
+                    They are slow to mature in comparison with most cat breeds, reaching full physical development at approximately three 
+                    years of age. Unusually among domestic cats they are a noticeably sexually dimorphic breed, with males averaging 9–17 lb 
+                    (4.1–7.7 kg) and females 7–12 lb (3.2–5.4 kg).
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column-three">
+                Tidiness
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <div class="column-three">
+                Friendliness
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <div class="column-three">
+                Fussiness
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+
+        <div class="comment">
+            <h2>Comment</h2>
+            <p><i class="fa fa-user"></i> YiZeng<br>
+                <br>&emsp;&emsp;I like this cat!!!
+            </p>
+            <p><i class="fa fa-user"></i> BuffZeng<br>
+                <br>&emsp;&emsp;Sooooo cute:)
+            </p>
+            <form>
+                <input type="text" placeholder="Type your comment..." name="comment">
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </body>
+</html>
