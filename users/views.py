@@ -10,19 +10,19 @@ def personal_info(request):
     print(request.method)
     print(request.user)
     context_dict = {'visits': request.session['visits']}
-    return render(request, 'users/index.html', context=context_dict)
+    return render(request, 'users/indexo.html', context=context_dict)
 
 def all_coments(request):
     context_dict = {'visits': request.session['visits']}
-    response = render(request, 'users/index.html', context=context_dict)
+    response = render(request, 'users/indexo.html', context=context_dict)
     return response
 
 def edit_ratings(request):
     context_dict = {'visits': request.session['visits']}
-    response = render(request, 'users/index.html', context=context_dict)
+    response = render(request, 'users/indexo.html', context=context_dict)
     return response
 
 def upload_image(request):
     context_dict = {'visits': request.session['visits']}
-    response = render(request, 'users/index.html', context=context_dict)
+    response = render(request, 'users/indexo.html', context=context_dict)
     return response
