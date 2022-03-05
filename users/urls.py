@@ -9,4 +9,6 @@ path('personal_info/',views.personal_info,name='personal_info'),
 path('edit_ratings/',views.edit_ratings,name='edit_ratings'),
 path('all_coments/',views.all_coments, name='all_coments'),
 path('upload_image/',views.upload_image,name='upload_image'),
+path('login/',views.login,name='login'),
+path('home/',views.home_page,name='home_page'),
 ]

@@ -2,15 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    response = render(request, 'users/index.html')
+    response = render(request, 'users/indexo.html')
     return response
 
 def personal_info(request):
-    context_dict = {'boldmessage': 'This tutorial has been put together by Rohan'}
-    print(request.method)
-    print(request.user)
-    context_dict = {'visits': request.session['visits']}
-    return render(request, 'users/indexo.html', context=context_dict)
+    return render(request, 'users/index.html')
 
 def all_coments(request):
     context_dict = {'visits': request.session['visits']}
@@ -26,3 +22,9 @@ def upload_image(request):
     context_dict = {'visits': request.session['visits']}
     response = render(request, 'users/indexo.html', context=context_dict)
     return response
+
+def login(request):
+    return render(request, 'users/login.html')
+
+def home_page(request):
+    return render(request,'users/index.html')

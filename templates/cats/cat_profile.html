@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 
 <html>
     
@@ -156,8 +156,8 @@
         </div>
         <div class="search-bar">
             <a class="active" href="home.html"><i class="fa fa-home"></i> Home</a>
-            <a href="../users/login.html"><i class="fa fa-user"></i> Login</a>
-            <a href="../users/index.html"><i class="fa fa-user"></i> User</a>
+            <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> Login</a>
+            <a href="{% url 'users:index' %}"><i class="fa fa-user"></i> User</a>
             <div class="search-container">
                 <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">
