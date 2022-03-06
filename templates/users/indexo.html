@@ -1,99 +1,296 @@
+<!DOCTYPE html>
 {% load static %}
+
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
-<title>Sample Title</title></head>
+    
+    <head>
+        <title>Index</title>
+    </head>
+
+<meta charset="utf-8">
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../static/css/index.css" type="text/css" media="all" />
+<script src="../../static/js/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="../../static/js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+<script src="../../static/js/jquery.slide.js" type="text/javascript"></script>
+<script src="../../static/js/jquery-func.js" type="text/javascript"></script>
+<style>
+
+  body {
+    margin: 0;
+    }
+
+    .header {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .div {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    .search-bar {
+        width: 100%;
+        background-color: #4b4b4b;
+        overflow: auto;
+    }
+    
+    .search-bar a {
+        float: left;
+        text-align: center;
+        padding: 14px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    .search-bar a:hover {
+        background-color: rgb(39, 39, 39);
+    }
+    
+    .active {
+      background-color: #04AA6D;
+    }
+
+    .search-bar .search-container {
+        float: right;
+    }
+
+    .search-bar input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+        border: none;
+        width: 500px;
+    }
+
+    .search-bar .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-bar .search-container button:hover {
+        background: #ccc;
+    }
+
+    .column-two {
+        margin-top: 20px;
+        float: left;
+        width: 320px;
+        height: 640px;
+        padding: 15px;
+        font-size: 18px;
+    }
+    .palbum {
+      margin-top: 20px;
+      position: absolute;
+      right:70px;
+      top:100px;
+      padding: 15px;
+      font-size: 22px;
+  }
+
+    .aboutme {
+      
+      float: left;
+      width: 480px;
+      height: 320px;
+      font-size: 18px;
+  }
+
+    .column-three {
+        margin-top: 20px;
+        float: left;
+        width: 30%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .comment {
+        float: left;
+        width: 100%;
+        
+    }
+
+    .comment h2 {
+        margin-left: 50px;
+        font-size: 30px;
+    }
+    .comment p {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        height: 100px;
+        overflow: auto;
+    }
+
+    .comment textarea {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        width: 80%;
+        height: 100px;
+        overflow: auto;
+    }
+
+    .comment button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 80px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .comment button:hover {
+        background: #ccc;
+    }
+    .gallery
+    {
+      margin-top: 18px;
+      margin-left: 10px;
+      width:250px;
+      height:250px;
+    }
+    .desc
+    { margin-top: 8px;
+      font-size: 18px;
+    }
+    .img
+    {
+      width:250px;
+      height:150px;
+    }
+
+    
+
+</style>
+
     <body>
         <div class="header">
-            <h1>Feliney</h1>
-            <p>Website Logo</p>
-            <button class="button button1"></button>
-            <button class="button button2"></button>
+          <div id = "logo">
+            <img src="../../static/images/logo.png" alt="" />
           </div>
-            <div><form role="search" id="form"class="searcho">
-            <input type="search" id="query" name="query"  placeholder="Search">
-            <button class="button button3"></button>
-            </form></div>
-            <div class="topnav">
-                <a class="active" href="#home">User Profile</a>
-                <a href="#all_comments">All Comments</a>
-                <a href="#edit_ratings">Edit Ratings</a>
-                <a href="#upload_photos">Upload Photos</a>
-              </div>
-                        <div class="profile-img">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Cioran_in_Romania.jpg" alt=""/>
-                            </div>
-                        </div>
-                      <div>
-                        <h2>Emil Cioran</h2>
-                      </div>
-                      <div class="tableo">
-                      <table>
-                        <tr>
-                          <td width="60%">User Type</td>
-                          <td>Cat Owner</td>
-                        </tr>
-                        <tr>
-                          <td>Favourite Breeds</td>
-                          <td>Sphynx,Ragdoll</td>
-                        </tr>
-                        <tr>
-                          <td>Email Id</td>
-                          <td>emil.cioran@gmail.com</td>
-                        </tr>
-                        <tr>
-                          <td>Member since</td>
-                          <td>28-09-2021</td>
-                        </tr>
-                      </table>
-                    </div>
-                    <div class="about_me">
-                      <h3>About me<h3>
-                        <div class="aboutme">
-                        <textarea class="aboutme" rows="6" cols="100" readonly>
-                          At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
-                          </textarea>
-                        </div>
-                    </div>
-                    <div>
-                      <button class="button button3"></button>
-                    </div>
-                   <div class="palbum">
-                     <h2>Photo Gallery</h2>
-                   </div>
-                    <table class="tablealbum">
-                      <tr>
-                    <td> <div class="gallery">
-                      <a target="_blank" href="/static/images/cat1.jpg">
-                        <img src="/static/images/cat1.jpg" width="150" height="100">
-                      </a>
-                      <div class="desc">Add a description of the image here</div>
-                    </div></td>
+          <div id = "sitename">
+            <h1>Feliney</h1>
+          </div>
+        </div>
+
+        <div class="search-bar">
+            <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
+            <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> All Comments</a>
+            <a href="../users/index.html"><i class="fa fa-user"></i> Edit Ratings</a>
+            <a href="../users/index.html"><i class="fa fa-user"></i>Upload Photos </a>
+            <div class="search-container">
+                <form action="" method="get">
+                    <input type="text" placeholder="Search..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="column-two">
+              <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
+          </div>
+
+          <div class="column-two">
+              <p><b>Name:</b> 
+                  Emil Cioran
+              </p>
+              <br>
+              <p><b>User Type:</b> 
+                  Cat Owner
+              </p>
+              <br>
+              <p><b>Favourite Breeds:</b> 
+                Sphynx,Ragdoll
+            </p>
+            <br>
+            <p><b>Email Id:</b> 
+              emil.cioran@gmail.com
+          </p>
+          <br>
+          <p><b>Member since:</b> 
+            28-09-2021
+        </p>
+        <br>
+              <div class="aboutme">
+              <p><b>About Me:</b> 
+                  The British Shorthair is a relatively powerful-looking large cat, having a broad chest, strong thick-set legs with rounded 
+                  paws and a medium-length, blunt-tipped tail. The head is relatively large and rounded, with a short muzzle, broad cheeks 
+                  (most noticeable in mature males, who tend to develop prominent jowls) and large round eyes that are deep coppery orange 
+                  in the British Blue and otherwise vary in colour depending on the coat. Their large ears are broad and widely set. 
+                  They are slow to mature in comparison with most cat breeds, reaching full physical development at approximately three 
+                  years of age. Unusually among domestic cats they are a noticeably sexually dimorphic breed, with males averaging 9–17 lb 
+                  (4.1–7.7 kg) and females 7–12 lb (3.2–5.4 kg).
+              </p>
+            </div>
+          </div>
+      </div>
+      <div class="palbum">
+        <h2>Photo Gallery</h2>
+        <table class="tablealbum">
+          <tr>
+        <td> <div class="gallery">
+          <a target="_blank" href="/static/images/cat1.jpg">
+            <img src="/static/images/cat1.jpg" class="img" width="150" height="150">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div></td>
+        
+        <td><div class="gallery">
+          <a target="_blank" href="/static/images/cat2.jpg">
+            <img src="/static/images/cat2.jpg" class="img" width="150" height="150">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div></td>
+      </tr>
+      <tr>
+        <td><div class="gallery">
+          <a target="_blank" href="/static/images/cat3.jpg">
+            <img src="/static/images/cat3.jpg" alt="Northern Lights" class="img" width="150" height="150">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div></td>
+        
+        <td><div class="gallery">
+          <a target="_blank" href="/static/images/cat4.jpg">
+            <img src="/static/images/cat4.jpg" alt="Mountains" class="img" width="150" height="150">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+          </div></td>
+        </tr>
+      
+      </table>
+
+      </div>
+     
                     
-                    <td><div class="gallery">
-                      <a target="_blank" href="/static/images/cat2.jpg">
-                        <img src="/static/images/cat2.jpg" width="100" height="100">
-                      </a>
-                      <div class="desc">Add a description of the image here</div>
-                    </div></td>
-                  </tr>
-                  <tr>
-                    <td><div class="gallery">
-                      <a target="_blank" href="/static/images/cat3.jpg">
-                        <img src="/static/images/cat3.jpg" alt="Northern Lights" width="150" height="150">
-                      </a>
-                      <div class="desc">Add a description of the image here</div>
-                    </div></td>
-                    
-                    <td><div class="gallery">
-                      <a target="_blank" href="/static/images/cat4.jpg">
-                        <img src="/static/images/cat4.jpg" alt="Mountains" width="150" height="150">
-                      </a>
-                      <div class="desc">Add a description of the image here</div>
-                      </div></td>
-                    </tr>
-                  
-                  </table>
+                   
     </body>
     </html>
                   
