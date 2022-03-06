@@ -9,18 +9,15 @@ def personal_info(request):
     return render(request, 'users/index.html')
 
 def all_coments(request):
-    context_dict = {'visits': request.session['visits']}
-    response = render(request, 'users/indexo.html', context=context_dict)
+    response = render(request, 'users/all_comments.html')
     return response
 
 def edit_ratings(request):
-    context_dict = {'visits': request.session['visits']}
-    response = render(request, 'users/indexo.html', context=context_dict)
+    response = render(request, 'users/edit_ratings.html')
     return response
 
 def upload_image(request):
-    context_dict = {'visits': request.session['visits']}
-    response = render(request, 'users/indexo.html', context=context_dict)
+    response = render(request, 'users/upload_photos.html')
     return response
 
 def login(request):
@@ -28,3 +25,9 @@ def login(request):
 
 def home_page(request):
     return render(request,'users/index.html')
+
+def edit_user(request):
+    return render(request,'users/edit_info.html')
+
+def add_cat(request):
+    return render(request,'users/add_cat.html')

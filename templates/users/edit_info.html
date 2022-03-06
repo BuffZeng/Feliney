@@ -4,7 +4,7 @@
 <html>
     
     <head>
-        <title>Index</title>
+        <title>Edit</title>
     </head>
 
 <meta charset="utf-8">
@@ -195,7 +195,6 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  text-shadow: #ccc;
   font-size: 16px;
   border-radius: 8px;
     }
@@ -211,10 +210,6 @@
   text-decoration: none;
   font-size: 16px;
   border-radius: 8px;
-  }
-  .link
-  {
-    color:white
   }
     
 
@@ -232,9 +227,9 @@
 
         <div class="search-bar">
             <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
-            <a href="{% url 'users:all_coments' %}"><i class="fa fa-user"></i> All Comments</a>
-            <a href="{% url 'users:edit_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
-            <a href="{% url 'users:upload_image' %}"><i class="fa fa-user"></i>Upload Photos </a>
+            <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> All Comments</a>
+            <a href="../users/index.html"><i class="fa fa-user"></i> Edit Ratings</a>
+            <a href="../users/index.html"><i class="fa fa-user"></i>Upload Photos </a>
             <div class="search-container">
                 <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">
@@ -242,113 +237,3 @@
                 </form>
             </div>
         </div>
-
-        <div class="row">
-          <div class="column-two">
-              <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
-          </div>
-          <div class="column-two">
-              <p><b>Name:</b> 
-                
-                {% if user.is_authenticated %}
-                {{userprofile.name}}
-                {% else %}
-                Emil Cioran
-                {% endif %}
-              </p>
-              <br>
-              <p><b>User Type:</b> 
-                {% if user.is_authenticated %}
-                {{userprofile.user_type}}
-                {% else %}
-                Cat Owner
-                {% endif %}
-              </p>
-              <br>
-              <p><b>Favourite Breeds:</b> 
-                {% if user.is_authenticated %}
-                {{userprofile.breeds}}
-                {% else %}
-                Sphynx, shorthair
-                {% endif %}
-            </p>
-            <br>
-            <p><b>Email Id:</b> 
-              {% if user.is_authenticated %}
-              {{userprofile.email_id}}
-              {% else %}
-              cioran@gmail.com
-              {% endif %}
-          </p>
-          <br>
-          <p><b>Member since:</b> 
-            {% if user.is_authenticated %}
-            {{userprofile.member_since}}
-            {% else %}
-            01-01-2021
-            {% endif %}
-        </p>
-        <br>
-              <div class="aboutme">
-              <p><b>About Me:</b> 
-                {% if user.is_authenticated %}
-                {{userprofile.about_me}}
-                {% else %}
-                  The British Shorthair is a relatively powerful-looking large cat, having a broad chest, strong thick-set legs with rounded 
-                  paws and a medium-length, blunt-tipped tail. The head is relatively large and rounded, with a short muzzle, broad cheeks 
-                  (most noticeable in mature males, who tend to develop prominent jowls) and large round eyes that are deep coppery orange 
-                  in the British Blue and otherwise vary in colour depending on the coat. Their large ears are broad and widely set. 
-                  They are slow to mature in comparison with most cat breeds, reaching full physical development at approximately three 
-                  years of age. Unusually among domestic cats they are a noticeably sexually dimorphic breed, with males averaging 9–17 lb 
-                  (4.1–7.7 kg) and females 7–12 lb (3.2–5.4 kg).
-                {% endif %}
-              </p> 
-            </div>
-            <p><button type="button" class="edito"><a href="{% url 'users:edit_user' %}" class="link">Edit Profile</a></button></p>
-            <br>
-            <button type="button" class="addo"><a href="{% url 'users:add_cat' %}" class="link">Add Cat</a></button></p>
-          </div>
-      </div>
-      <div class="palbum">
-        <h2>Photo Gallery</h2>
-        <table class="tablealbum">
-          <tr>
-        <td> <div class="gallery">
-          <a target="_blank" href="/static/images/cat1.jpg">
-            <img src="/static/images/cat1.jpg" class="img" width="150" height="150">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div></td>
-        
-        <td><div class="gallery">
-          <a target="_blank" href="/static/images/cat2.jpg">
-            <img src="/static/images/cat2.jpg" class="img" width="150" height="150">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div></td>
-      </tr>
-      <tr>
-        <td><div class="gallery">
-          <a target="_blank" href="/static/images/cat3.jpg">
-            <img src="/static/images/cat3.jpg" alt="Northern Lights" class="img" width="150" height="150">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div></td>
-        
-        <td><div class="gallery">
-          <a target="_blank" href="/static/images/cat4.jpg">
-            <img src="/static/images/cat4.jpg" alt="Mountains" class="img" width="150" height="150">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-          </div></td>
-        </tr>
-      
-      </table>
-
-      </div>
-     
-                    
-                   
-    </body>
-    </html>
-                  
