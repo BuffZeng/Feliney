@@ -17,7 +17,8 @@ def index(request):
     since=user.member_since
     breeds=user.breeds
     about_me=user.about_me
-    response = render(request, 'users/indexo.html',{'name':name,'user_type':user_type,'email_id':email,'since':since,'breeds':breeds,'about_me':about_me})
+    picture=user.picture.url
+    response = render(request, 'users/indexo.html',{'name':name,'user_type':user_type,'email_id':email,'since':since,'breeds':breeds,'about_me':about_me,'picture':picture})
     return response
 
 def personal_info(request):

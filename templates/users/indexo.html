@@ -245,7 +245,11 @@
 
         <div class="row">
           <div class="column-two">
+            {% if user.is_authenticated %}
+              <img src="{{picture}}" alt="Picture of User" width="640" height="320"/>
+              {% else %}
               <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
+            {% endif %}
           </div>
           <div class="column-two">
               <p><b>Name:</b> 
