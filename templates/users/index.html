@@ -74,8 +74,11 @@
 
         <div class="search-bar">
             <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
+            {% if user.is_authenticated %}
+            {% else %}
             <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> Login</a>
-            <a href="../users/index.html"><i class="fa fa-user"></i> User</a>
+            {% endif %}
+            <a href="{% url 'users:index' %}"><i class="fa fa-user"></i> User</a>
             <div class="search-container">
                 <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">

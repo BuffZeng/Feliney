@@ -44,7 +44,7 @@ def login(request):
         if user:
             if user.is_active:
                 auth_login(request, user)
-                return redirect(reverse('users:index'))
+                return redirect(reverse('users:home_page'))
             else:
                 return HttpResponse("Your Rango account is disabled.")
         else:
@@ -54,6 +54,8 @@ def login(request):
         return render(request, 'users/login.html')
 
 def home_page(request):
+    user=request.user
+    print(user)
     return render(request,'users/index.html')
 
 def edit_user(request):

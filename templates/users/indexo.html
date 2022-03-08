@@ -310,7 +310,10 @@
             </div>
             <p><button type="button" class="edito"><a href="{% url 'users:edit_user' %}" class="link">Edit Profile</a></button></p>
             <br>
+            {% if user_type == "Admin" %}
             <button type="button" class="addo"><a href="{% url 'users:add_cat' %}" class="link">Add Cat</a></button></p>
+            {% else %}
+            {% endif %}
           </div>
       </div>
       <div class="palbum">
