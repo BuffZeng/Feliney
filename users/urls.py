@@ -13,4 +13,5 @@ path('login/',views.login,name='login'),
 path('home/',views.home_page,name='home_page'),
 path('edit/',views.edit_user,name='edit_user'),
 path('add_cat/',views.add_cat,name='add_cat'),
+path('logout/',views.user_logout,name='user_logout')
 ]

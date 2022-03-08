@@ -232,17 +232,18 @@
 
         <div class="search-bar">
             <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
-            <a href="{% url 'users:all_coments' %}"><i class="fa fa-user"></i> All Comments</a>
-            <a href="{% url 'users:edit_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
-            <a href="{% url 'users:upload_image' %}"><i class="fa fa-user"></i>Upload Photos </a>
+            <a href="{% url 'users:all_coments' %}"><i class="fa fa-comment"></i> All Comments</a>
+            <a href="{% url 'users:edit_ratings' %}"><i class="fa fa-star-half-o"></i> Edit Ratings</a>
+            <a href="{% url 'users:upload_image' %}"><i class="fa fa-picture-o"></i>Upload Photos </a>
             <div class="search-container">
+              
                 <form action="" method="get">
+                  <a href="{% url 'users:user_logout' %}"><i class="fa fa-sign-out"></i>Log out </a>
                     <input type="text" placeholder="Search..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>
-
         <div class="row">
           <div class="column-two">
             {% if user.is_authenticated %}
@@ -308,7 +309,7 @@
                 {% endif %}
               </p> 
             </div>
-            <p><button type="button" class="edito"><a href="{% url 'users:edit_user' %}" class="link">Edit Profile</a></button></p>
+            <p><button type="button" class="edito"><i class="fa fa-pencil-square-o"></i><a href="{% url 'users:edit_user' %}" class="link"> Edit Profile</a></button></p>
             <br>
             {% if user_type == "Admin" %}
             <button type="button" class="addo"><a href="{% url 'users:add_cat' %}" class="link">Add Cat</a></button></p>

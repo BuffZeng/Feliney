@@ -61,5 +61,9 @@ def home_page(request):
 def edit_user(request):
     return render(request,'users/edit_info.html')
 
+def user_logout(request):
+    logout(request)
+    return redirect(reverse('users:home_page'))
+
 def add_cat(request):
     return render(request,'users/add_cat.html')
