@@ -238,24 +238,25 @@
         </div>
 
         <div class="login-form">
-            <form>
+            <form action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
 
                 <div class="content">
                     <div class="input-field">
-                      <input type="email" placeholder="Email" autocomplete="nope">
+                      <input type="text" placeholder="Username" name="username" autocomplete="nope">
                     </div>
 
                     <div class="input-field">
-                      <input type="password" placeholder="Password" autocomplete="new-password">
+                      <input type="password" placeholder="Password" name="password" autocomplete="new-password">
                     </div>
                 </div>
 
                   <div class="action">
                     <button>Register</button>
-                    <button>Sign in</button>
+                    <button><input type="submit" value="Submit"></button>
                   </div>
 
-            </form>
+            </form> 
           </div>
         
     </body>

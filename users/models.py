@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 class UserProfile(models.Model):
+    uid=models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_type = models.CharField(max_length=20)
     name=models.CharField(max_length=50)
