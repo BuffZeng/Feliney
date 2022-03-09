@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
+from cats.models import CatProfile
+
 # Create your models here.
 class UserProfile(models.Model):
     uid=models.AutoField(primary_key=True)
@@ -17,3 +19,9 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class CommentTable(models.Model):
+    description = models.CharField(max_length=800,default="")
+    uid=models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    cid=models.ForeignKey(CatProfile, on_delete=models.CASCADE)
