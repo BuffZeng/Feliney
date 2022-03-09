@@ -11,8 +11,9 @@ class UserProfile(models.Model):
     name=models.CharField(max_length=50)
     member_since=models.CharField(max_length=30)
     email_id=models.CharField(max_length=50,default=None)
-    about_me=models.CharField(max_length=800)
     picture = models.ImageField(null=True,blank=True)
     breeds=models.CharField(max_length=100,null=True)
+    about_me=models.CharField(max_length=800)
+
     def __str__(self):
         return self.user.username

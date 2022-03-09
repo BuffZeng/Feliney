@@ -4,8 +4,11 @@ from django.contrib.auth import authenticate,logout
 from django.contrib.auth import login as auth_login
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.forms import inlineformset_factory
+
 from users.models import UserProfile
 from django.http import HttpResponse
+from users.forms import UserProfileForm
 # Create your views here.
 def index(request):
     current_user=request.user
@@ -59,7 +62,16 @@ def home_page(request):
     return render(request,'users/index.html')
 
 def edit_user(request):
-    return render(request,'users/edit_info.html')
+    current_user=request.user
+    usero=UserProfile.objects.get(user=current_user)
+    gh=UserProfileForm(instance=usero)
+    if request.method=='POST':
+        gh=UserProfileForm(request.POST,request.FILES,instance=usero)
+        if gh.is_valid():
+            gh.save()
+    context={'form':gh}
+    return render(request, 'users/edit_info.html', context)
+	
 
 def user_logout(request):
     logout(request)

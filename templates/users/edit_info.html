@@ -87,13 +87,13 @@
         float: left;
         width: 320px;
         height: 640px;
-        padding: 15px;
+        padding: 20px;
         font-size: 18px;
     }
     .palbum {
       margin-top: 20px;
       position: absolute;
-      right:70px;
+      left:70px;
       top:100px;
       padding: 15px;
       font-size: 22px;
@@ -199,6 +199,11 @@
   border-radius: 8px;
     }
 
+.formtable {
+      width:780px;
+      height:480px;
+    }
+    
   .addo
   {
   background-color:#4b4b4b;
@@ -224,7 +229,7 @@
             <h1>Feliney</h1>
           </div>
         </div>
-
+      
         <div class="search-bar">
             <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
             <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> All Comments</a>
@@ -237,3 +242,25 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div class="column-two">
+              {% if user.is_authenticated %}
+                <img src="{{request.user.userprofile.picture.url}}" alt="Picture of User" width="640" height="320"/>
+                {% else %}
+                <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
+              {% endif %}
+            </div>
+            <div class="column-two">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table class="formtable">
+                        {{ form.as_table }}
+                    </table>
+                    <br>
+                    <br>
+                <input class="edito" type="submit" name="Update Information">
+                </form>
+            </div>
+        </div>
+    </body>
+    </html>
