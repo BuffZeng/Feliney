@@ -1,12 +1,8 @@
 import py_compile
 from django.db import models
 from django.contrib.auth.models import User
-from django.template.defaultfilters import slugify
-<<<<<<< HEAD
-
 from cats.models import CatProfile
-=======
->>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class UserProfile(models.Model):
@@ -23,14 +19,12 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-<<<<<<< HEAD
+
 
 class CommentTable(models.Model):
     description = models.CharField(max_length=800,default="")
     uid=models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     cid=models.ForeignKey(CatProfile, on_delete=models.CASCADE)
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 class CatPhotos(models.Model):
     pid=models.AutoField(primary_key=True)
@@ -39,12 +33,4 @@ class CatPhotos(models.Model):
     uploaddate = models.DateTimeField(auto_now_add=True)
     description=models.CharField(max_length=50,null=True,blank=True)
 
-    
-=======
-=======
->>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
->>>>>>> 562e1175e00f40d6eab14586e698807083668470
-=======
-=======
->>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
->>>>>>> 562e1175e00f40d6eab14586e698807083668470
+
