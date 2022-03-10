@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 
 <html>
     <head>
@@ -14,68 +14,9 @@
     <style>
 
         body {
-        margin: 0;
-        }
-
-        .header {
-            font-size: 30px;
-            text-align: center;
-        }
-
-        .div {
-            margin-right: 50px;
-            margin-left: 50px;
-        }
-
-        .search-bar {
-            width: 100%;
-            background-color: #4b4b4b;
-            overflow: auto;
-        }
-        
-        .search-bar a {
-            float: left;
-            text-align: center;
-            padding: 14px;
-            color: white;
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .search-bar a:hover {
-            background-color: rgb(39, 39, 39);
-        }
-        
-        .active {
-        background-color: #04AA6D;
-        }
-
-        .search-bar .search-container {
-            float: right;
-        }
-
-        .search-bar input[type=text] {
-            padding: 6px;
-            margin-top: 8px;
-            margin-right: 16px;
-            font-size: 17px;
-            border: none;
-            width: 500px;
-        }
-
-        .search-bar .search-container button {
-            float: right;
-            padding: 6px 10px;
-            margin-top: 8px;
-            margin-right: 16px;
-            background: #ddd;
-            font-size: 17px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .search-bar .search-container button:hover {
-            background: #ccc;
+            margin: 0;
+            background: url(../../static/images/bg.jpg);
+            background-size: 100%;
         }
 
         .column-two {
@@ -149,7 +90,7 @@
         }
 
         .login-form {
-            background: #fff;
+            background: rgba(165, 173, 169, 0.6);
             width: 500px;
             margin: 65px auto;
             display: -webkit-box;
@@ -184,6 +125,7 @@
         .login-form .input-field input:focus {
             border-color: #222;
         }
+
         .login-form .action {
             display: -webkit-box;
             display: flex;
@@ -191,6 +133,7 @@
             -webkit-box-direction: normal;
                     flex-direction: row;
         }
+
         .login-form .action button {
             width: 100%;
             border: none;
@@ -207,6 +150,7 @@
             -webkit-transition: all .3s;
             transition: all .3s;
         }
+
         .login-form .action button:hover {
             background: #d8d8d8;
         }
@@ -223,41 +167,26 @@
     </style>
 
     <body>
-        <div class="header">
-            <h1>Login</h1>
-        </div>
-
-        <div class="search-bar">
-            <a href="home.html"><i class="fa fa-home"></i> Home</a>
-            <a class="active" href="../users/login.html"><i class="fa fa-user"></i> Login</a>
-            <a href="../users/index.html"><i class="fa fa-user"></i> User</a>
-            <div class="search-container">
-                <form action="" method="get">
-                    <input type="text" placeholder="Search..." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-
         <div class="login-form">
-            <form>
+            <form action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
 
                 <div class="content">
                     <div class="input-field">
-                      <input type="email" placeholder="Email" autocomplete="nope">
+                      <input type="text" placeholder="Username" name="username" autocomplete="nope">
                     </div>
 
                     <div class="input-field">
-                      <input type="password" placeholder="Password" autocomplete="new-password">
+                      <input type="password" placeholder="Password" name="password" autocomplete="new-password">
                     </div>
                 </div>
 
                   <div class="action">
                     <button>Register</button>
-                    <button>Sign in</button>
+                    <button><input type="submit" value="Submit"></button>
                   </div>
 
-            </form>
+            </form> 
           </div>
         
     </body>
