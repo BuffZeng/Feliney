@@ -22,6 +22,10 @@ $( document ).ready( function(){
 	$('.tabs a').slide({
 		'slide_selector' : '.tab-content'
 	})
+
+	$('.tabs a').slide({
+		'slide_selector' : '.user-function'
+	})
 });
 
 function _init_carousel(carousel) {

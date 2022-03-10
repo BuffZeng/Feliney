@@ -5,6 +5,8 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.forms import inlineformset_factory
+from users.forms import CatPhotosForm
+from users.models import CatPhotos
 
 from users.models import UserProfile
 from django.http import HttpResponse
@@ -21,7 +23,9 @@ def index(request):
     breeds=user.breeds
     about_me=user.about_me
     picture=user.picture.url
-    response = render(request, 'users/indexo.html',{'name':name,'user_type':user_type,'email_id':email,'since':since,'breeds':breeds,'about_me':about_me,'picture':picture})
+    cat1,cat2,cat3,cat4=CatPhotos.objects.filter(uid=user.uid).order_by('-uploaddate')[:4]
+    print(cat2.picture.url)
+    response = render(request, 'users/indexo.html',{'name':name,'user_type':user_type,'email_id':email,'since':since,'breeds':breeds,'about_me':about_me,'picture':picture,'cat1':cat1,'cat2':cat2,'cat3':cat3,'cat4':cat4})
     return response
 
 def personal_info(request):
@@ -36,7 +40,15 @@ def edit_ratings(request):
     return response
 
 def upload_image(request):
-    response = render(request, 'users/upload_photos.html')
+    current_user_id=request.user.userprofile.uid
+    cato=CatPhotos(uid=current_user_id)
+    gh=CatPhotosForm(instance=cato)
+    if request.method=='POST':
+        gh=CatPhotosForm(request.POST,request.FILES,instance=cato)
+        if gh.is_valid():
+            gh.save()
+    context={'form':gh}
+    response = render(request, 'users/upload_photos.html',context)
     return response
 
 def login(request):

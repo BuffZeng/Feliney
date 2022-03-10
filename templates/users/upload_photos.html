@@ -85,9 +85,10 @@
     .column-two {
         margin-top: 20px;
         float: left;
+        
         width: 320px;
-        height: 640px;
-        padding: 15px;
+        height: 780px;
+        padding: 20px;
         font-size: 18px;
     }
     .palbum {
@@ -231,10 +232,10 @@
         </div>
 
         <div class="search-bar">
-            <a class="active" href="{% url 'users:index' %}"><i class="fa fa-home"></i>User Profile</a>
+            <a href="{% url 'users:index' %}"><i class="fa fa-home"></i>User Profile</a>
             <a href="{% url 'users:all_coments' %}"><i class="fa fa-user"></i> All Comments</a>
             <a href="{% url 'users:edit_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
-            <a href="{% url 'users:upload_image' %}"><i class="fa fa-user"></i>Upload Photos </a>
+            <a class="active" href="{% url 'users:upload_image' %}"><i class="fa fa-user"></i>Upload Photos </a>
             <div class="search-container">
                 <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">
@@ -242,3 +243,30 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+          <div class="column-two">
+            {% if user.is_authenticated %}
+              <img src="{{request.user.userprofile.picture.url}}" alt="Picture of User" width="640" height="320"/>
+              {% else %}
+              <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
+            {% endif %}
+          </div>
+          
+          <div class="column-two">
+            <h2>Upload a New Photo</h2>
+            <br>
+            <br>
+              <form method="POST" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <table class="formtable">
+                      {{ form.as_table }}
+                  </table>
+                  <br>
+                  <br>
+              <input class="edito" type="submit" name="Update Information">
+              <input class="edito" type="submit" name="cancel" value="Cancel" /> 
+              </form>
+          </div>
+      </div>
+  </body>
+  </html>
