@@ -58,7 +58,141 @@
         border: none;
         cursor: pointer;
     }
-    
+    column-two {
+        margin-top: 20px;
+        float: left;
+        
+        width: 320px;
+        height: 780px;
+        padding: 20px;
+        font-size: 18px;
+    }
+    .palbum {
+      margin-top: 20px;
+      position: absolute;
+      right:70px;
+      top:100px;
+      padding: 15px;
+      font-size: 22px;
+  }
+
+    .aboutme {
+      
+      float: left;
+      width: 480px;
+      height: 320px;
+      font-size: 18px;
+  }
+
+    .column-three {
+        margin-top: 20px;
+        float: left;
+        width: 30%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .comment {
+        float: left;
+        width: 100%;
+        
+    }
+
+    .comment h2 {
+        margin-left: 50px;
+        font-size: 30px;
+    }
+    .comment p {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        height: 100px;
+        overflow: auto;
+    }
+
+    .comment textarea {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        width: 80%;
+        height: 100px;
+        overflow: auto;
+    }
+
+    .comment button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 80px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .comment button:hover {
+        background: #ccc;
+    }
+    .gallery
+    {
+        margin-top: 18px;
+        margin-left: 10px;
+        width:250px;
+        height:250px;
+    }
+    .desc
+    { margin-top: 8px;
+        font-size: 18px;
+    }
+    .img
+    {
+      width:250px;
+      height:150px;
+    }
+
+    .edito
+    {
+        background-color:#4b4b4b;
+        border: none;
+        display: inline-block;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: #ccc;
+        font-size: 16px;
+        border-radius: 8px;
+        }
+
+  .addo
+  {
+    background-color:#4b4b4b;
+    border: none;
+    display: inline-block;
+    color: white;
+    padding: 15px 41px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .link
+  {
+    color:white
+  }
 
 </style>
 
@@ -143,62 +277,219 @@
                         <div class="items">
                             <div class="cl">&nbsp;</div>
                                 <div class = "edit_ratings">
-                                    <div class = "fistEdit">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <div class = "cat_name">American Short</div>
-                                                </td>
-                                                <td>
-                                                    <div class = "cat_image"></div>
-                                                </td>
-                                                <td>
-                                                    <div class="rating">
-                                                        <input type="radio" id="star5" name="rating" value="5" hidden/>
-                                                        <label for="star5"></label>
-                                                        <input type="radio" id="star4" name="rating" value="4" hidden/>
-                                                        <label for="star4"></label>
-                                                        <input type="radio" id="star3" name="rating" value="3" hidden/>
-                                                        <label for="star3"></label>
-                                                        <input type="radio" id="star2" name="rating" value="2" hidden/>
-                                                        <label for="star2"></label>
-                                                        <input type="radio" id="star1" name="rating" value="1" hidden/>
-                                                        <label for="star1"></label>
+
+                                    <div class = "firstEdit">
+                                         <div class="heading"><h2>American Short</h2></div>
+                                            <div class="box">
+                                                <div class="edit1">
+                                                    <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                    <div class = "rating">
+                                                        <div id="starRating">
+                    
+                                                            <p class="photo">
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                            </p>
+                                                            <p class="starNum">0.0</p>
+                                                            <div class="bottoms">
+                                                               <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                           </div>
+                                                        </div>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
+                                                    
+                                                </div>
 
+                                                <div class="edit2">
+                                                    <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                    <div class = "rating">
+                                                        <div id="starRating">
+                    
+                                                            <p class="photo">
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                            </p>
+                                                            <p class="starNum">0.0</p>
+                                                            <div class="bottoms">
+                                                               <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
 
-                                       
-                                       
+                                                <div class="edit3">
+                                                    <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                    <div class = "rating">
+                                                        <div id="starRating">
+                    
+                                                            <p class="photo">
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                            </p>
+                                                            <p class="starNum">0.0</p>
+                                                            <div class="bottoms">
+                                                               <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                       
+                                                </div>
+
+                                            </div>
 
                                     </div>
 
+
+                                    <div class = "secondEdit">
+                                         <div class="heading"><h2>American Short</h2></div>
+                                            <div class="box">
+                                                <div class="edit1">
+                                                    <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                    <div class = "rating">
+                                                        <div id="starRating">
+                    
+                                                            <p class="photo">
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                            </p>
+                                                            <p class="starNum">0.0</p>
+                                                            <div class="bottoms">
+                                                               <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                                <div class="edit2">
+                                                    <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                    <div class = "rating">
+                                                        <div id="starRating">
+                    
+                                                            <p class="photo">
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                            </p>
+                                                            <p class="starNum">0.0</p>
+                                                            <div class="bottoms">
+                                                               <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                                <div class="edit3">
+                                                    <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                    <div class = "rating">
+                                                        <div id="starRating">
+                    
+                                                            <p class="photo">
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                               <span><i class="high"></i><i class="nohigh"></i></span>
+                                                            </p>
+                                                            <p class="starNum">0.0</p>
+                                                            <div class="bottoms">
+                                                               <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                       
+                                                </div>
+                                                
+                                            </div>
                                     </div>
 
+                                    <div class = "thirdEdit">
+
+                                        <div class="heading"><h2>American Short</h2></div>
+                                        <div class="box">
+                                            <div class="edit1">
+                                                <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                <div class = "rating">
+                                                    <div id="starRating">
+                
+                                                        <p class="photo">
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                        </p>
+                                                        <p class="starNum">0.0</p>
+                                                        <div class="bottoms">
+                                                           <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="edit2">
+                                                <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                <div class = "rating">
+                                                    <div id="starRating">
+                
+                                                        <p class="photo">
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                        </p>
+                                                        <p class="starNum">0.0</p>
+                                                        <div class="bottoms">
+                                                           <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="edit3">
+                                                <div class = edit_item><h4><a href="#">Tydiness</a></h4></div>
+                                                <div class = "rating">
+                                                    <div id="starRating">
+                
+                                                        <p class="photo">
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                           <span><i class="high"></i><i class="nohigh"></i></span>
+                                                        </p>
+                                                        <p class="starNum">0.0</p>
+                                                        <div class="bottoms">
+                                                           <a class="garyBtn cancleStar">Cancel Rating</a><a class="blueBtn sureStar">Confirm</a>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                                   
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
 
                                 </div>
+
                             <div class="cl">&nbsp;</div>
                         </div>
                     </div>
@@ -208,17 +499,91 @@
                     <div class="user-function">
                         <div class="items">
                             <div class="cl">&nbsp;</div>
+                            <div class = "Comment">
 
+                                <div class = "Comment_1">
+                                    <p class = "commentContent">This is a cute breed</p>
+                                    <div class = "likes_delete">
+                                        <div class = "like"><img src="../../static/images/like.png"> <p>liked by ...</p></div>
+                                        <div class = "delete"><img src="../../static/images/delete.png"></div>
+                                    </div>
+                                </div>
+                               
+                                <div class = "Comment_2">
+                                    <p class = "commentContent">My cat is not cute</p>
+                                    <div class = "likes_delete">
+                                        <div class = "like"><img src="../../static/images/like.png"></div>
+                                        <div class = "delete"><img src="../../static/images/delete.png"></div>
+                                    </div>
+                                </div>
+
+                                <div class = "Comment_3">
+                                    <p class = "commentContent">Sometimes it seems cute</p>
+                                    <div class = "likes_delete">
+                                        <div class = "like"><img src="../../static/images/like.png"></div>
+                                        <div class = "delete"><img src="../../static/images/delete.png"></div>
+                                    </div>
+                                </div>
+
+                                <div class = "Comment_4">
+                                    <p class = "commentContent">sometimes not</p>
+                                    <div class = "likes_delete">
+                                        <div class = "like"><img src="../../static/images/like.png"></div>
+                                        <div class = "delete"><img src="../../static/images/delete.png"></div>
+                                    </div>
+                                </div>
+
+                                <div class = "Comment_5">
+                                    <p class = "commentContent">LoL</p>
+                                    <div class = "likes_delete">
+                                        <div class = "like"><img src="../../static/images/like.png"></div>
+                                        <div class = "delete"><img src="../../static/images/delete.png"></div>
+                                    </div>
+                                </div>
+
+                                <div class = "Comment_6">
+                                    <p class = "commentContent">gg&hf</p>
+                                    <div class = "likes_delete">
+                                        <div class = "like"><img src="../../static/images/like.png"></div>
+                                        <div class = "delete"><img src="../../static/images/delete.png"></div>
+                                    </div>
+                                </div>
+
+                            </div>
                             <div class="cl">&nbsp;</div>
                         </div>
                     </div>
                     <!-- End Third Tab Content -->
 
-                    <!-- Third Tab Content -->
+                    <!-- Fourth Tab Content -->
                     <div class="user-function">
                         <div class="items">
                             <div class="cl">&nbsp;</div>
-    
+                            <div class="row">
+                                <div class="column-two">
+                                  {% if user.is_authenticated %}
+                                    <img src="{{request.user.userprofile.picture.url}}" alt="Picture of User" width="640" height="320"/>
+                                    {% else %}
+                                    <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
+                                  {% endif %}
+                                </div>
+                                
+                                <div class="column-two">
+                                  <h2>Upload a New Photo</h2>
+                                  <br>
+                                  <br>
+                                    <form method="POST" action="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <table class="formtable">
+                                            {{ form.as_table }}
+                                        </table>
+                                        <br>
+                                        <br>
+                                    <input class="edito" type="submit" name="Update Information">
+                                    <input class="edito" type="submit" name="cancel" value="Cancel" /> 
+                                    </form>
+                                </div>
+                            </div>
                             <div class="cl">&nbsp;</div>
                         </div>
                     <!-- End Third Tab Content -->
@@ -231,6 +596,11 @@
             <div class="left"> 
                 <a href="index.html">index</a> <span>|</span> <a href="#">Support</a> <span>|</span> <a href="../user/home.index">My Account</a> </div>
             </div>
+
+                                                               
+        </div>
+        <script src="../../static/js/jquery.min.js"></script>
+        <script src="../../static/js/home.js"></script>
             
     </body>
 </html>

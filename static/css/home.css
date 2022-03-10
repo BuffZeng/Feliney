@@ -166,45 +166,147 @@ img{
 
 
 /* part 2 edit rating*/
-.cat_name{
-    font-size: 30px;
-    height: 85;
-}
-.cat_image{
-    width: 126px;
-    height: 85px;
-    background: url(../../static/images/cat1.jpg);
+.edit_ratings{
+    margin-left: 300px;
 }
 
-.rating{
-    font-size: 0;
-    display: table;
+.firstEdit, .secondEdit, .thirdEdit{
+    width: 600px;
+    height: 600px;
+    border:1px solid black;
+
 }
 
-.rating > label {
-    color: #ddd;
+#starRating .photo span{
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 42px;
+    overflow: hidden;
+    margin-right: 23px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+#starRating .photo span:last-child{
+    margin-right: 0px;
+}
+#starRating .photo span .nohigh{
+    position: absolute;
+    width: 44px;
+    height: 42px;
+    top: 0;
+    left: 0;
+    background: url(../../static/images/star.png);
+    background-size: 100%;
+}
+#starRating .photo span .high {
+    position: absolute;
+    width: 44px;
+    height: 42px;
+    top: 0;
+    left: 0;
+    background: url(../../static/images/star1.png);
+    background-size: 100%;
+}
+#starRating .starNum {
+    font-size: 26px;
+    color: #de4414;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+#starRating .photo{
+    margin-top: 30px;
+}
+#starRating .bottoms a {
+    margin-bottom: 0;
+}
+#starRating .bottoms .garyBtn {
+    margin-right: 57px!important;
+}
+#starRating .bottoms a {
+    width: 130px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 0.2s linear;
+    margin: 16px 0 22px;
+    text-align: center;
+    cursor: pointer;
+}
+.garyBtn {
+    margin-right: 60px!important;
+    background-color: #e1e1e1;
+    color: #999999;
+}
+.blueBtn {
+    background-color: #1968b1;
+    color: #fff;
+}
+.blueBtn:hover {
+    background: #0e73d0;
+}
+
+.edit1, .edit2, .edit3{
+    float: left;
+    margin-left: 100px;
+} 
+
+
+/*Part 3: All Comments */
+
+.Comment{
+    width: 100%;
+}
+
+.Comment_1, .Comment_2, .Comment_3, .Comment_4, .Comment_5, .Comment_6{
+    border: 1px solid black;
+    height: 100px;
+    margin-top: 30px;
+} 
+
+.commentContent{
+    height: 70px;
+    font-size: 14px;
+}
+.like_delete{
+    height: 30px;
+}
+
+.like{
+    width: auto;
+    height: 20px;
+    float: left;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.like img, .like p{
+    font-style: italic;
+    font: rgb(228, 64, 105);
+    float: left;
+    padding-right: 10px;
+}
+.delete{
+    padding-right: 20px;
+    margin-bottom: 10px;
+    width: 20px;
+    height: 20px;
     float: right;
 }
 
-.rating > label:before{
-    padding: 5px;
-    font-size: 24px;
-    line-height: 1em;
-    display: inline-block;
-    content: "★";
+/* .like img{
+    float: left;
+    
 }
+.delete img{
+    float: right;
+    
+} */
 
-.rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: #FFD700;
-}
 
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label{
-    opacity: 0.5;
-}
+
 
 
 
