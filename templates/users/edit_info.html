@@ -242,7 +242,30 @@
                 </form>
             </div>
         </div>
+<<<<<<< HEAD
 
 
+=======
+        <div class="row">
+            <div class="column-two">
+              {% if user.is_authenticated %}
+                <img src="{{request.user.userprofile.picture.url}}" alt="Picture of User" width="640" height="320"/>
+                {% else %}
+                <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
+              {% endif %}
+            </div>
+            <div class="column-two">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table class="formtable">
+                        {{ form.as_table }}
+                    </table>
+                    <br>
+                    <br>
+                <input class="edito" type="submit" name="Update Information">
+                </form>
+            </div>
+        </div>
+>>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
     </body>
     </html>
