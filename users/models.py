@@ -30,6 +30,7 @@ class CommentTable(models.Model):
     uid=models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     cid=models.ForeignKey(CatProfile, on_delete=models.CASCADE)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 class CatPhotos(models.Model):
     pid=models.AutoField(primary_key=True)
@@ -39,6 +40,10 @@ class CatPhotos(models.Model):
     description=models.CharField(max_length=50,null=True,blank=True)
 
     
+=======
+=======
+>>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
+>>>>>>> 562e1175e00f40d6eab14586e698807083668470
 =======
 =======
 >>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
