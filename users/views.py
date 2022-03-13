@@ -5,7 +5,7 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.forms import inlineformset_factory
-from users.forms import CatPhotosForm
+from users.forms import CatPhotosForm, UserForm
 from users.models import CatPhotos
 
 from users.models import UserProfile
@@ -91,3 +91,23 @@ def user_logout(request):
 
 def add_cat(request):
     return render(request,'users/add_cat.html')
+
+def register(request):
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(request.POST)
+        profile_form = UserProfileForm(request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save
+            user.set_password(user.password)
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            registered = True
+        else:
+            print(user_form.errors, profile_form.errors)
+    else:
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+    return render(request, 'user/UserRegister.html', context={'user_form': user_form, 'profile_form': profile_form, 'registered': registered})

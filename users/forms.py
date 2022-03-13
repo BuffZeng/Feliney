@@ -1,3 +1,4 @@
+from pyexpat import model
 from tkinter import Widget
 from django.forms import ModelForm,Textarea
 from django.contrib.auth.models import User
@@ -16,3 +17,9 @@ class CatPhotosForm(ModelForm):
 		model= CatPhotos
 		fields =('picture','description')
 		widgets={'description':forms.Textarea(attrs={'rows':6, 'cols':100}),}
+
+class UserForm(ModelForm):
+	password = forms.CharField(widget=forms.PasswordInput())
+	class Meta:
+		model = User
+		fields = ('name', 'email_id', 'password',)

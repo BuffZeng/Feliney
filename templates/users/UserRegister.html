@@ -16,7 +16,8 @@
 					<div class="login_title">
 							User Register 
 					</div>
-					<form action="#" method="post">
+					<form action="{% url 'users:register'}" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
 							
 						<div class="form_text_ipt">
 							<input name="username" type="text" placeholder="Phone/E-mail">
@@ -36,9 +37,6 @@
 							
 						<div class="form_btn">
 							<button type="button" onclick="javascript:window.location.href='#'">Register</button>
-						</div>
-						<div class="form_reg_btn">
-							<span>Have Account already?</span><a id = "loginpage" href="login.html">Login</a>
 						</div>
 						</form>
 						
