@@ -159,38 +159,39 @@
             <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> Login</a>
             <a href="{% url 'users:index' %}"><i class="fa fa-user"></i> User</a>
             <div class="search-container">
-                <form action="" method="get">
+                <form method="GET" action="{% url 'cats:search' %}">
+                    {% csrf_token %}
                     <input type="text" placeholder="Search..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>
 
+        {% if cat %}
         <div class="row">
             <div class="column-two">
                 <img class="cat-img" src="/media/British-Shorthair.png" alt="Picture of British Shorthair." width="640" height="360"/>
             </div>
-
             <div class="column-two">
-                <p><b>Name:</b> 
-                    British Shorthair
-                </p>
-                <p><b>Range:</b> 
-                    around £1200
-                </p>
-                <p><b>Description:</b> 
-                    The British Shorthair is a relatively powerful-looking large cat, having a broad chest, strong thick-set legs with rounded 
-                    paws and a medium-length, blunt-tipped tail. The head is relatively large and rounded, with a short muzzle, broad cheeks 
-                    (most noticeable in mature males, who tend to develop prominent jowls) and large round eyes that are deep coppery orange 
-                    in the British Blue and otherwise vary in colour depending on the coat. Their large ears are broad and widely set. 
-                    They are slow to mature in comparison with most cat breeds, reaching full physical development at approximately three 
-                    years of age. Unusually among domestic cats they are a noticeably sexually dimorphic breed, with males averaging 9–17 lb 
-                    (4.1–7.7 kg) and females 7–12 lb (3.2–5.4 kg).
-                </p>
+                <b>Name:</b> 
+                    {{cat.breed}}
+                <br><b>Range:</b> 
+                    {{cat.price_range}}
+                <br><b>Description:</b> 
+                    {{cat.description}}
             </div>
         </div>
 
         <div class="row">
+            <form id="RatingCatForm" method="post" action="">
+                {% csrf_token %}
+                {% for hidden in ratingform.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                {% for field in ratingform.visible_fields %}
+                    {{ field.errors }}
+                    {{ field }}
+                {% endfor %}
             <div class="column-three">
                 Tidiness
                 <i class="fa fa-star"></i>
@@ -215,20 +216,31 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
             </div>
+            </form>
         </div>
 
         <div class="comment">
             <h2>Comment</h2>
-            <p><i class="fa fa-user"></i> YiZeng<br>
-                <br>&emsp;&emsp;I like this cat!!!
-            </p>
-            <p><i class="fa fa-user"></i> BuffZeng<br>
-                <br>&emsp;&emsp;Sooooo cute:)
-            </p>
-            <form action="" method="post">
+            {% if comment %}
+            {% for com in comment %}
+            <i class="fa fa-user"></i> {{com.uid}}<br>
+                <br>&emsp;&emsp;{{com.description}}
+                <br>{{com.likes}}
+            {% endfor %}
+            {% endif %}
+            <form id="CommentForm" method="post" action="">
+                {% csrf_token %}
+                {% for field in commentform.visible_fields %}
+                    {{ field.errors }}
+                    {{ field.help_text }}
+                    {{ field }}
+                {% endfor %}
                 <textarea name="comment" placeholder="Type your comment..."></textarea>
                 <button type="submit">submit</button>
             </form>
         </div>
+        {% else %}
+            No matched cat founded.
+        {% endif %}
     </body>
 </html>

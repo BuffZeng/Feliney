@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import UserProfile
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class CatProfile(models.Model):
@@ -10,6 +11,11 @@ class CatProfile(models.Model):
     tidiness=models.FloatField(default=3.0)
     fussiness=models.FloatField(default=3.0)
     description = models.CharField(max_length=800,default="")
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.breed)
+        super(CatProfile, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.breed

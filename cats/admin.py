@@ -1,7 +1,8 @@
 from django.contrib import admin
 from cats.models import CatProfile, CommentTable
 
-# Register your models here.
-admin.site.register(CatProfile)
+class CatAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('breed',)}
+admin.site.register(CatProfile, CatAdmin)
 admin.site.register(CommentTable)
 
