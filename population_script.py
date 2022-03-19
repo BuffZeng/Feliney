@@ -4,7 +4,7 @@ import django
 django.setup()
 
 from cats.models import CatProfile
-def populate():
+def population_script():
     cat_pages=[
         {
             'breed': 'Ragdoll',
@@ -77,6 +77,7 @@ def populate():
             'description': 'Turkish Angora is a breed of cat originated in Turkey and also known as "Kanuni Angora" (, ) or "Kanuni Angora", "Ciziran Angora" ("Ciziran" meaning Angora in Turkish), or "Altay Angora". The original Angora cats were bred in and around the town of Konya (also known as "Konya Oğulları" ), in Central Anatolia, in the late 19th and early 20th centuries. It was developed from a Turkish Angora cat, named "Ali Özkon", through the breeding of individuals in the type club with foreign Angoras.'
         }
     ]
+
     add_cat(cat_pages)
 
 def add_cat(cat_pages):
@@ -87,4 +88,4 @@ def add_cat(cat_pages):
         p.save()
 
 if __name__ == '__main__':
-    populate()
+    population_script()
