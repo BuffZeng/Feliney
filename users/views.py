@@ -62,6 +62,12 @@ def personal_info(request):
     return render(request, 'users/index.html')
 
 def all_coments(request):
+    delcom=request.POST.get('como',None)
+    if delcom!=None and delcom!='':
+        print('in delete')
+        inx=CommentTable.objects.get(description=delcom,uid=request.user.userprofile.uid)
+        if inx!=None:
+            inx.delete()       
     current_user=request.user.userprofile.uid
     all_comments=CommentTable.objects.filter(uid=current_user)
     tups=[(a.description,a.cid.breed) for a in all_comments]

@@ -284,11 +284,18 @@
             <br>
             <section class="comment_gallery">
             {% for bredo,desco in tups %}
-            <div class="comment">
-              <p><i class="fa fa-paw"></i>{{desco}}<br>
-                <br>
-                <i class="fa fa-comment"></i>{{bredo}}
-              </p>         
+            <form method="POST" action="{% url 'users:all_coments' %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="comment">
+                <p><i class="fa fa-paw"></i>{{desco}}<br>
+                  <br>
+                  <i class="fa fa-comment"></i>{{bredo}}<br>
+                  <br>
+                  <input type="hidden" name="como" value="{{bredo}}">
+                <input class="edito" type="submit" name="Select" value="Delete">
+              </p>   
+              </form>
+                    
             </div>
             
             {% endfor %} 
