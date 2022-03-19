@@ -83,10 +83,15 @@
             {% else %}
             {% endif %}
             <div class="search-container">
-                <form action="" method="get">
-                    <input type="text" placeholder="Search..." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+              <form method="GET" action="{% url 'cats:search' %}">
+                {% if user.is_authenticated %}
+                <a href="{% url 'users:user_logout' %}"><i class="fa fa-sign-out"></i>Log out </a>
+                {% else %}
+                {% endif %}
+                {% csrf_token %}
+                <input type="text" placeholder="Search..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
             </div>
         </div>
 
@@ -130,54 +135,12 @@
                   <div class="items">
                     <div class="cl">&nbsp;</div>
                     <ul>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                        <p> Ranking <span>1st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                        <p> ranking <span>2st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                        <p> ranking <span>3st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image4.png" alt="" /></a> </div>
-                        <p> ranking <span>4st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image4.png" alt="" /></a> </div>
-                        <p> ranking <span>5st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                        <p> ranking <span>6st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                        <p> ranking <span>7st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
-                      <li>
-                        <div class="image"> <a href="../catss/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                        <p> ranking <span>8st</span><br />
-                            Breed name: : <span>American Shorthair</span><br />
-                        </p>
-                      </li>
+                      {% for gen in general %}
+                        <div class="image"> <a href="{% url 'cats:show_cat' gen.slug %}"><img src="/media/{{gen.slug}}.jpeg" alt="" /></a> </div>
+                        <p> 
+                            Breed name: : <span>{{gen.breed}}</span><br />
+                        </p>                      
+                      {% endfor %}
                     </ul>
                     <div class="cl">&nbsp;</div>
                   </div>
@@ -189,54 +152,12 @@
                     <div class="items">
                         <div class="cl">&nbsp;</div>
                         <ul>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                            <p> ranking <span>1st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            <p> ranking <span>2st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> ranking <span>3st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image4.png" alt="" /></a> </div>
-                            <p> ranking <span>4st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image4.png" alt="" /></a> </div>
-                            <p> ranking <span>5st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            <p> ranking <span>6st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> ranking <span>7st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                            <p> ranking <span>8st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
+                          {% for fri in friendliness %}
+                        <div class="image"> <a href="{% url 'cats:show_cat' fri.slug %}"><img src="/media/{{fri.slug}}.jpeg" alt="" /></a> </div>
+                        <p> 
+                            Breed name: : <span>{{fri.breed}}</span><br />
+                        </p>                      
+                      {% endfor %}
                         </ul>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -248,54 +169,12 @@
                     <div class="items">
                         <div class="cl">&nbsp;</div>
                         <ul>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            <p> Ranking <span>1st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> Ranking <span>2st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                            <p> Ranking <span>3st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image4.png" alt="" /></a> </div>
-                            <p> Ranking <span>4st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                            <p> Ranking <span>5st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            <p> Ranking <span>6st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> Ranking <span>7st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            <p> Ranking <span>8st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
+                          {% for fus in fussiness %}
+                        <div class="image"> <a href="{% url 'cats:show_cat' fus.slug %}"><img src="/media/{{fus.slug}}.jpeg" alt="" /></a> </div>
+                        <p> 
+                            Breed name: : <span>{{fus.breed}}</span><br />
+                        </p>                      
+                      {% endfor %}
                         </ul>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -307,57 +186,12 @@
                     <div class="items">
                         <div class="cl">&nbsp;</div>
                         <ul>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> ranking <span>1st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> ranking <span>2st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image1.png" alt="" /></a> </div>
-                            <p> ranking <span>3st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image4.png" alt="" /></a> </div>
-                            <p> ranking <span>4st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image2.png" alt="" /></a> </div>
-                            <p> ranking <span>5st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            
-                            <p> ranking <span>6st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            
-                            <p> ranking <span>7st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
-                          <li>
-                            <div class="image"> <a href="../cats/cat_profile.html"><img src="../../static/images/image3.png" alt="" /></a> </div>
-                            
-                            <p> ranking <span>8st</span><br />
-                                Breed name: : <span>American Shorthair</span><br />
-                            </p>
-                          </li>
+                          {% for tid in tidiness %}
+                        <div class="image"> <a href="{% url 'cats:show_cat' tid.slug %}"><img src="/media/{{tid.slug}}.jpeg" alt="" /></a> </div>
+                        <p> 
+                            Breed name: : <span>{{tid.breed}}</span><br />
+                        </p>                      
+                      {% endfor %}
                         </ul>
                         <div class="cl">&nbsp;</div>
                 </div>

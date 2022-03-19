@@ -86,7 +86,7 @@
         margin-top: 20px;
         float: left;
         width: 320px;
-        height: 540px;
+        height: 640px;
         padding: 15px;
         font-size: 18px;
     }
@@ -127,20 +127,18 @@
         
     }
 
-    .comment_gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);    
-  }
-
+    .comment h2 {
+        margin-left: 50px;
+        font-size: 30px;
+    }
     .comment p {
-        padding: 5px;
+        padding: 10px;
         margin-top: 8px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 80px;
+        margin-right: 80px;
         font-size: 17px;
         border-style: solid;
-        height: 400px;
-        width: 200px;
+        height: 100px;
         overflow: auto;
     }
 
@@ -218,39 +216,6 @@
   {
     color:white
   }
-  .comment {
-    float: left;
-    width: 100%;
-    
-}
-
-.comment h2 {
-    margin-left: 50px;
-    font-size: 30px;
-}
-.comment p {
-    padding: 10px;
-    margin-top: 25px;
-    margin-left: 50px;
-    margin-right: 35px;
-    font-size: 17px;
-    border-style: solid;
-    height: 100px;
-    overflow: auto;
-}
-
-.comment textarea {
-    padding: 10px;
-    margin-top: 8px;
-    margin-left: 80px;
-    margin-right: 80px;
-    font-size: 17px;
-    border-style: solid;
-    width: 80%;
-    height: 100px;
-    overflow: auto;
-}
-
     
 
 </style>
@@ -266,10 +231,10 @@
         </div>
 
         <div class="search-bar">
-            <a href="{% url 'users:index' %}"><i class="fa fa-user"></i>User Profile</a>
-            <a class="active" href="{% url 'users:all_coments' %}"><i class="fa fa-comment"></i> All Comments</a>
-            <a href="{% url 'users:pre_cat_ratings' %}"><i class="fa fa-star-half-o"></i> Edit Ratings</a>
-            <a href="{% url 'users:upload_image' %}"><i class="fa fa-picture-o"></i>Upload Photos </a>
+            <a href="{% url 'users:index' %}"><i class="fa fa-home"></i>User Profile</a>
+            <a href="{% url 'users:all_coments' %}"><i class="fa fa-user"></i> All Comments</a>
+            <a class="active" href="{% url 'users:edit_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
+            <a href="{% url 'users:upload_image' %}"><i class="fa fa-user"></i>Upload Photos </a>
             <a href="{% url 'users:messaging' %}"><i class="fa fa-inbox"></i>Inbox</a>
             <div class="search-container">
                 <form action="" method="get">
@@ -279,19 +244,22 @@
             </div>
         </div>
         <div class="row">
-          <div class="column-three">
-            <h2>All Comments</h2>
+          <div class="column-two">
+            <h2>Select the cat</h2>
             <br>
-            <section class="comment_gallery">
-            {% for bredo,desco in tups %}
-            <div class="comment">
-              <p><i class="fa fa-paw"></i>{{desco}}<br>
-                <br>
-                <i class="fa fa-comment"></i>{{bredo}}
-              </p>         
-            </div>
-            
-            {% endfor %} 
-          </section>
-            </div>
-            </div>
+              <form method="POST" action="{% url 'users:edit_ratings' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <p><b>Cat : </b> 
+                    <select name="cat" class="form-control">
+                {% for x in allcats %}
+                       <option name="catoinfo" value="{{x}}">{{x}}</option>
+              {% endfor %}
+                    </select>
+           </p>  
+           <br>
+                  <input class="edito" type="submit" name="Select" onclick=>
+              </form>
+          </div>
+      </div>
+  </body>
+  </html>

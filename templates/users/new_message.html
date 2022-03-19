@@ -138,7 +138,8 @@
         margin-right: 80px;
         font-size: 17px;
         border-style: solid;
-        height: 100px;
+        width:350px;
+        height: 170px;
         overflow: auto;
     }
 
@@ -172,8 +173,8 @@
     {
       margin-top: 18px;
       margin-left: 10px;
-      width:250px;
-      height:250px;
+      width:550px;
+      height:550px;
     }
     .desc
     { margin-top: 8px;
@@ -196,7 +197,7 @@
   text-align: center;
   text-decoration: none;
   text-shadow: #ccc;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 8px;
     }
 
@@ -231,13 +232,13 @@
         </div>
 
         <div class="search-bar">
-            <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
+            <a href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
             {% if user_type == "Admin" %}
             {% else %}
             <a href="{% url 'users:all_coments' %}"><i class="fa fa-comment"></i> All Comments</a>
             <a href="{% url 'users:pre_cat_ratings' %}"><i class="fa fa-star-half-o"></i> Edit Ratings</a>
             <a href="{% url 'users:upload_image' %}"><i class="fa fa-picture-o"></i>Upload Photos </a>
-            <a href="{% url 'users:messaging' %}"><i class="fa fa-inbox"></i>Inbox</a>
+            <a class="active" href="{% url 'users:messaging' %}"><i class="fa fa-inbox"></i>Inbox</a>
 
             {% endif %}
             <div class="search-container">
@@ -250,133 +251,21 @@
             </div>
         </div>
         <div class="row">
-          <div class="column-two">
-            {% if user.is_authenticated %}
-              <img src="{{picture}}" alt="Picture of User" width="640" height="320"/>
-              {% else %}
-              <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
-            {% endif %}
-          </div>
-          <div class="column-two">
-              <p><b>Name:</b> 
-                
-                {% if user.is_authenticated %}
-                {{name}}
-                {% else %}
-                Emil Cioran
-                {% endif %}
-              </p>
+            <div class="column-three">
+              <h2>Reply to {{name}}</h2>
               <br>
-              <p><b>User Type:</b> 
-                {% if user.is_authenticated %}
-                {{user_type}}
-                {% else %}
-                Cat Owner
-                {% endif %}
-              </p>
               <br>
-              <p><b>Favourite Breeds:</b> 
-                {% if user.is_authenticated %}
-                {{breeds}}
-                {% else %}
-                Sphynx, shorthair
-                {% endif %}
-            </p>
-            <br>
-            <p><b>Email Id:</b> 
-              {% if user.is_authenticated %}
-              {{email_id}}
-              {% else %}
-              cioran@gmail.com
-              {% endif %}
-          </p>
-          <br>
-          <p><b>Member since:</b> 
-            {% if user.is_authenticated %}
-            {{since}}
-            {% else %}
-            01-01-2021
-            {% endif %}
-        </p>
-        <br>
-        {% if user_type == "Admin" %}
-        {% else %}
-              <div class="aboutme">
-              <p><b>About Me:</b> 
-                {% if user.is_authenticated %}
-                {{about_me}}
-                {% else %}
-                  The British Shorthair is a relatively powerful-looking large cat, having a broad chest, strong thick-set legs with rounded 
-                  paws and a medium-length, blunt-tipped tail. The head is relatively large and rounded, with a short muzzle, broad cheeks 
-                  (most noticeable in mature males, who tend to develop prominent jowls) and large round eyes that are deep coppery orange 
-                  in the British Blue and otherwise vary in colour depending on the coat. Their large ears are broad and widely set. 
-                  They are slow to mature in comparison with most cat breeds, reaching full physical development at approximately three 
-                  years of age. Unusually among domestic cats they are a noticeably sexually dimorphic breed, with males averaging 9–17 lb 
-                  (4.1–7.7 kg) and females 7–12 lb (3.2–5.4 kg).
-                {% endif %}
-              </p> 
-            </div>
-            {% endif %}
-            <p><button type="button" class="edito"><i class="fa fa-pencil-square-o"></i><a href="{% url 'users:edit_user' %}" class="link"> Edit Profile</a></button></p>
-            <br>
-            {% if user_type == "Admin" %}
-            <button type="button" class="addo"><i class="fa fa-paw"></i><a href="{% url 'users:add_cat' %}" class="link">Add Cat</a></button></p>
-            {% else %}
-            {% endif %}
-          </div>
-      </div>
-      {% if user_type == "Admin" %}
-      {% else %}
-      <div class="palbum">
-        <h2>Photo Gallery</h2>
-        <table class="tablealbum">
-          <tr>
-        <td> <div class="gallery">
-          {% if cat1 == None %}
-          {% else %}
-          <a target="_blank" href="/static/images/cat1.jpg">
-            <img src="{{cat1.picture.url}}" alt="Cat1" class="img" width="150" height="150">
-          </a>
-          <div class="desc">{{cat1.description}}</div>
-        </div></td>
-        {% endif %}
-        <td><div class="gallery">
-          {% if cat2 == None %}
-          {% else %}
-          <a target="_blank" href="/static/images/cat2.jpg">
-            <img src="{{cat2.picture.url}}" alt="Cat2" class="img" width="150" height="150">
-          </a>
-          <div class="desc">{{cat2.description}}</div>
-        </div></td>
-        {% endif %}
-      </tr>
-      <tr>
-        <td><div class="gallery">
-          {% if cat3 == None %}
-          {% else %}
-          <a target="_blank" href="/static/images/cat3.jpg">
-            <img src="{{cat3.picture.url}}" alt="Cat3" class="img" width="150" height="150">
-          </a>
-          <div class="desc">{{cat3.description}}</div>
-        </div></td>
-        {% endif %}
-        <td><div class="gallery">
-          {% if cat4 == None %}
-          {% else %}
-          <a target="_blank" href="/static/images/cat4.jpg">
-            <img src="{{cat4.picture.url}}" alt="Cat4" class="img" width="150" height="150">
-          </a>
-          <div class="desc">{{cat4.description}}</div>
-          </div></td>
-          {% endif %}
-        </tr>
-      
-      </table>
-
-      </div>
-      {% endif %}
-                    
-                   
-    </body>
-    </html>
-                  
+              <form method="POST" action="{% url 'users:messaging' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
+                <br>
+                <input type="hidden" name="rec" value="{{recieve}}">
+                <input class="edito" type="submit" name="Update Information" value="Reply" onclick=>
+            </form>
+        </div>
+    </div>
+</body>
+</html>    

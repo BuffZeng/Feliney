@@ -231,10 +231,11 @@
         </div>
 
         <div class="search-bar">
-            <a class="active" href="{% url 'users:index' %}"><i class="fa fa-home"></i>User Profile</a>
+            <a href="{% url 'users:index' %}"><i class="fa fa-home"></i>User Profile</a>
             <a href="{% url 'users:all_coments' %}"><i class="fa fa-user"></i> All Comments</a>
-            <a href="{% url 'users:edit_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
+            <a class="active" href="{% url 'users:pre_cat_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
             <a href="{% url 'users:upload_image' %}"><i class="fa fa-user"></i>Upload Photos </a>
+            <a href="{% url 'users:messaging' %}"><i class="fa fa-inbox"></i>Inbox</a>
             <div class="search-container">
                 <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">
@@ -242,3 +243,18 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+          <div class="column-two">
+              <form method="POST" action="{% url 'users:index' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <table>
+                      {{ form.as_table }}
+                  </table>
+                  <br>
+                  <br>
+                  <input class="edito" type="submit" name="Update Information" onclick=>
+              </form>
+          </div>
+      </div>
+  </body>
+  </html>

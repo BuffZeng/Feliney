@@ -24,5 +24,6 @@ class CatProfile(models.Model):
 class CommentTable(models.Model):
     description = models.CharField(max_length=800,default="")
     likes = models.IntegerField(default=0)
+    postdate=models.DateField(auto_now_add=True,null=True)
     uid=models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     cid=models.ForeignKey(CatProfile, on_delete=models.CASCADE)

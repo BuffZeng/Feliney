@@ -151,13 +151,20 @@
 </style>
 
     <body>
+
         <div class="header">
             <h1>Feliney</h1>
         </div>
         <div class="search-bar">
-            <a class="active" href="home.html"><i class="fa fa-home"></i> Home</a>
+            <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
+            {% if user.is_authenticated %}
+            {% else %}
             <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> Login</a>
+            {% endif %}
+            {% if user.is_authenticated %}
             <a href="{% url 'users:index' %}"><i class="fa fa-user"></i> User</a>
+            {% else %}
+            {% endif %}
             <div class="search-container">
                 <form method="GET" action="{% url 'cats:search' %}">
                     {% csrf_token %}
@@ -170,7 +177,7 @@
         {% if cat %}
         <div class="row">
             <div class="column-two">
-                <img class="cat-img" src="/media/British-Shorthair.png" alt="Picture of British Shorthair." width="640" height="360"/>
+                <img class="cat-img" src="/media/{{cat.slug}}.jpeg" alt="Picture of cat." width="640" height="360"/>
             </div>
             <div class="column-two">
                 <b>Name:</b> 
@@ -183,6 +190,19 @@
         </div>
 
         <div class="row">
+            <div class="column-three">
+                Tidiness
+                {{cat.tidiness}}
+            </div>
+            <div class="column-three">
+                Friendliness
+                {{cat.friendliness}}
+            </div>
+            <div class="column-three">
+                Fussiness
+                {{cat.fussiness}}
+            </div>
+            {% if user.is_authenticated %}
             <form id="RatingCatForm" method="post" action="">
                 {% csrf_token %}
                 {% for hidden in ratingform.hidden_fields %}
@@ -194,40 +214,41 @@
                 {% endfor %}
             <div class="column-three">
                 Tidiness
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
+                <input type="text" name="tidiness" placeholder="Tidiness">
             </div>
             <div class="column-three">
                 Friendliness
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
+                <input type="text" name="friendliness" placeholder="Friendliness">
             </div>
             <div class="column-three">
                 Fussiness
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
+                <input type="text" name="fussinessc" placeholder="Fussiness">
             </div>
+            <input type="submit" value="submit">
             </form>
+            {% else %}
+            {% endif %}
         </div>
 
         <div class="comment">
             <h2>Comment</h2>
             {% if comment %}
-            {% for com in comment %}
-            <i class="fa fa-user"></i> {{com.uid}}<br>
-                <br>&emsp;&emsp;{{com.description}}
-                <br>{{com.likes}}
-            {% endfor %}
+                {% for com in comment %}
+                    <i class="fa fa-user"></i> {{com.uid}}<br>
+                        <br>&emsp;&emsp;{{com.description}}
+
+                    <br><form method="POST" action="{% url 'cats:show_cat' slugo %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="como" value="{{com.description}}">
+                        {% if user_type == "Admin" %}
+                    <input class="edito" type="submit" name="Select" value="Delete">
+                    {% endif %}
+                </form>
+                    
+                {% endfor %}
             {% endif %}
+            
+            {% if user.is_authenticated %}
             <form id="CommentForm" method="post" action="">
                 {% csrf_token %}
                 {% for field in commentform.visible_fields %}
@@ -238,6 +259,8 @@
                 <textarea name="comment" placeholder="Type your comment..."></textarea>
                 <button type="submit">submit</button>
             </form>
+            {% else %}
+            {% endif %}
         </div>
         {% else %}
             No matched cat founded.

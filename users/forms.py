@@ -1,6 +1,5 @@
-from pyexpat import model
 from tkinter import Widget
-from django.forms import ModelForm,Textarea
+from django.forms import HiddenInput, ModelForm,Textarea
 from django.contrib.auth.models import User
 from django import forms
 
@@ -16,10 +15,35 @@ class CatPhotosForm(ModelForm):
 	class Meta:
 		model= CatPhotos
 		fields =('picture','description')
-		widgets={'description':forms.Textarea(attrs={'rows':6, 'cols':100}),}
+		widgets={'description':forms.Textarea(attrs={'rows':4, 'cols':30}),}
 
-class UserForm(ModelForm):
+
+class CatRatingsForm(ModelForm):
+	class Meta:
+		model= CatRatings
+		fields = ('catname','fusiness','friendliness','tidiness')	
+
+class CatimessageForm(ModelForm):
+	class Meta:
+		model= Catimessage
+		fields =('messagebody',)
+		widgets={'messagebody':forms.Textarea(attrs={'rows':6, 'cols':100}),}
+
+class DraftmessageForm(ModelForm):
+	class Meta:
+		model= Catimessage
+		fields =('messagereceive','messagebody')
+		widgets={'messagebody':forms.Textarea(attrs={'rows':6, 'cols':100}),}
+
+
+class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
 	class Meta:
 		model = User
-		fields = ('name', 'email_id', 'password',)
+		fields = ('username','password')
+
+class UserRegProfileForm(ModelForm):
+	class Meta:
+		model = UserProfile
+		fields = ('email_id','picture','user_type','breeds','about_me')
+		widgets={'about_me':forms.Textarea(attrs={'rows':6, 'cols':100}),}

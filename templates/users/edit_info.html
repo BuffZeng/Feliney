@@ -231,8 +231,9 @@
         <div class="search-bar">
             <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
             <a href="{% url 'users:login' %}"><i class="fa fa-user"></i> All Comments</a>
-            <a href="../users/index.html"><i class="fa fa-user"></i> Edit Ratings</a>
+            <a href="{% url 'users:pre_cat_ratings' %}"><i class="fa fa-user"></i> Edit Ratings</a>
             <a href="../users/index.html"><i class="fa fa-user"></i>Upload Photos </a>
+            <a href="{% url 'users:messaging' %}"><i class="fa fa-inbox"></i>Inbox</a>
             <div class="search-container">
                 <form action="" method="get">
                     <input type="text" placeholder="Search..." name="search">
@@ -240,10 +241,6 @@
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
-
-
-=======
         <div class="row">
             <div class="column-two">
               {% if user.is_authenticated %}
@@ -260,10 +257,9 @@
                     </table>
                     <br>
                     <br>
-                <input class="edito" type="submit" name="Update Information">
+                    <input class="edito" type="submit" name="Update Information" onclick=>
                 </form>
             </div>
         </div>
->>>>>>> 1e07bab4ae2744c81f33bed4078dac48f6dc9fbd
     </body>
     </html>

@@ -250,7 +250,7 @@ img{
 
 .items { 
     position:relative; 
-    width:auto; 
+    width:100%; 
     margin-right:-20px; 
     padding-bottom:5px; 
 }

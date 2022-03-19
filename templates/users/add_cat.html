@@ -239,3 +239,19 @@
                 </form>
             </div>
         </div>
+
+        <div class="row">
+          <div class="column-two">
+              <form method="POST" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <table>
+                      {{ form.as_table }}
+                  </table>
+                  <br>
+                  <br>
+                  <input class="edito" type="submit" name="Add Cat" onclick=>
+              </form>
+          </div>
+      </div>
+  </body>
+  </html>
