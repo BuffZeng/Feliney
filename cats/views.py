@@ -1,13 +1,13 @@
-from django.shortcuts import redirect, render, render_to_response
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from cats.forms import CommentForm
-from .models import CatProfile, CommentTable
+from cats.models import CatProfile, CommentTable
 from users.models import CatRatings
 from users.forms import CatRatingsForm
-from django.http import HttpResponse
-from django.contrib import messages
 
 # Create your views here.
+
+# search bar
 def search(request):
     # get the searched keyword
     q = request.GET.get('search')
@@ -28,6 +28,7 @@ def search(request):
         error_msg = 'No matched information founded...'
         return render(request, 'cats/error_page.html', {'error_msg': error_msg})
 
+# show cat profiles
 def show_cat(request, cat_name_slug):
     # create context dic to store info
     context_dic = {}
@@ -84,7 +85,7 @@ def show_cat(request, cat_name_slug):
     add_rating(request, cat.slug)
     return render(request, 'cats/cat_profile.html', context=context_dic)
 
-
+# add comment to a cat
 def add_comment(request, cat_name_slug):
     # check the user authenrization
     if not request.user.is_authenticated:
@@ -122,7 +123,7 @@ def add_comment(request, cat_name_slug):
         print(commentform.errors)
     return render(request, 'cats/cat_profile.html', {'commentform': commentform})
 
-# use catrating models.
+# add rating to a cat
 def add_rating(request, cat_name_slug):
     # if not request.user.is_authenticated:
     #     return redirect(reverse('users/login.html'))
