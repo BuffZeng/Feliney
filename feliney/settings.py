@@ -27,7 +27,7 @@ SECRET_KEY = 'lon30#s1f=4eb=a+96x03a^j$i2=mtpq78ik_x8ndr=e+!)0k3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['feliney.pythonanywhere.com',]
 
 
 # Application definition
