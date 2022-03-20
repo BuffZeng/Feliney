@@ -177,9 +177,9 @@ def home_page(request):
             catins.save()
         else:
             # calculate the score of each attribute.
-            catfriend= (CatRatings.objects.filter(cid=x).aggregate(Sum('friendliness'))['friendliness__sum'])/votes
-            cattidy= (CatRatings.objects.filter(cid=x).aggregate(Sum('tidiness'))['tidiness__sum'])/votes
-            catfusy= (CatRatings.objects.filter(cid=x).aggregate(Sum('fusiness'))['fusiness__sum'])/votes
+            catfriend= round((CatRatings.objects.filter(cid=x).aggregate(Sum('friendliness'))['friendliness__sum'])/votes,2)
+            cattidy= round((CatRatings.objects.filter(cid=x).aggregate(Sum('tidiness'))['tidiness__sum'])/votes,2)
+            catfusy= round((CatRatings.objects.filter(cid=x).aggregate(Sum('fusiness'))['fusiness__sum'])/votes,2)
             catres= CatProfile.objects.get(cid=x)
             catres.friendliness=catfriend
             catres.tidiness=cattidy
