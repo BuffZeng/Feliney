@@ -1,0 +1,185 @@
+
+
+
+
+    .photo_gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width:800px;
+      height:200px    
+  }
+  
+    .photo_gallery a {
+          display: inline-block;
+          height: 200px;
+          width: 200px;
+          padding-right: 10px;
+      }
+  
+    .photo_gallery img {
+          height: 200px;
+          width: 200px;
+          padding-right: 10px;
+      }
+
+    .search-bar .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-bar .search-container button:hover {
+        background: #ccc;
+    }
+
+    .column-two {
+        margin-top: 20px;
+        float: right;
+        margin-right: 100px;
+        
+        width: 520px;
+        height: 680px;
+        padding: 20px;
+        font-size: 18px;
+    }
+
+    .column-three {
+      margin-top: 20px;
+        float: left;
+        
+        width: 320px;
+        height: 680px;
+        padding: 20px;
+        font-size: 18px;
+  }
+    .palbum {
+      margin-top: 20px;
+      position: absolute;
+      right:70px;
+      top:100px;
+      padding: 15px;
+      font-size: 22px;
+  }
+
+    .aboutme {
+      
+      float: left;
+      width: 480px;
+      height: 320px;
+      font-size: 18px;
+  }
+
+   
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .comment {
+        float: left;
+        width: 100%;
+        
+    }
+
+    .comment h2 {
+        margin-left: 50px;
+        font-size: 30px;
+    }
+    .comment p {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        height: 100px;
+        overflow: auto;
+    }
+
+    .comment textarea {
+        padding: 10px;
+        margin-top: 8px;
+        margin-left: 80px;
+        margin-right: 80px;
+        font-size: 17px;
+        border-style: solid;
+        width: 80%;
+        height: 100px;
+        overflow: auto;
+    }
+
+    .comment button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 80px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .comment button:hover {
+        background: #ccc;
+    }
+    .gallery
+    {
+      margin-top: 18px;
+      margin-left: 10px;
+      width:250px;
+      height:250px;
+    }
+    .desc
+    { margin-top: 8px;
+      font-size: 18px;
+    }
+    .img
+    {
+      width:250px;
+      height:150px;
+    }
+
+    .edito
+    {
+  
+  background-color:#04AA6D;
+  border: none;
+  display: inline-block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: #ccc;
+  font-size: 16px;
+  border-radius: 8px;
+    }
+
+  .addo
+  {
+  background-color:#4b4b4b;
+  border: none;
+  display: inline-block;
+  color: white;
+  padding: 15px 41px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 8px;
+  }
+  .link
+  {
+    color:white
+  }
+  .gamimages
+  {
+    width:300px;
+    height:100px;
+  }
+  

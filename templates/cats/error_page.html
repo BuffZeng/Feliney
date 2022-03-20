@@ -8,8 +8,11 @@
     </head>
 
     <body>
-        <h1>Error Page</h1>
-        {{error_msg}}
-        <a class="active" href="{% url 'users:home_page' %}"> Home</a>
+        <div style="text-align: center;">
+            <h1>Error Page</h1>
+            {{error_msg}}
+            <a class="active" href="{% url 'users:home_page' %}"> Home</a>
+        </div>
+        
     </body>
 </html>
