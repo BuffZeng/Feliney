@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    
+    <head>
+        <title>Index</title>
+    </head>
+
+<meta charset="utf-8">
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../static/css/index.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../../static/css/base.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../../static/css/addcat.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../../static/css/userinterfaceSearchBar.css" type="text/css" media="all" />
+<script src="../../static/js/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="../../static/js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+<script src="../../static/js/jquery.slide.js" type="text/javascript"></script>
+<script src="../../static/js/jquery-func.js" type="text/javascript"></script>
+<style>
+
+
+    
+
+</style>
+
+    <body>
+        <div class="header">
+          <div id = "logo">
+            <img src="../../static/images/logo.png" alt="" />
+          </div>
+          <div id = "sitename">
+            <h1>Feliney</h1>
+          </div>
+        </div>
+
+        <div class="search-bar">
+            <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
+            <div class="search-container">
+                <form action="" method="get">
+                    <input type="text" placeholder="Search..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="column-two">
+              <form method="POST" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <table>
+                      {{ form.as_table }}
+                  </table>
+                  <br>
+                  <br>
+                  <input class="edito" type="submit" name="Add Cat" onclick=>
+              </form>
+          </div>
+      </div>
+  </body>
+  </html>
