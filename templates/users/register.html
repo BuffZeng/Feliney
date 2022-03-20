@@ -5,15 +5,29 @@
 <head>
 		<title>Register Page</title>
 		<link rel="stylesheet" href="../../static/css/reset.css" />
+		<link rel="stylesheet" href="../../static/css/formstyle.css" />
 		<link rel="stylesheet" href="../../static/css/common.css" />
 		<link rel="stylesheet" href="../../static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 </head>
 <body>
+
+	<div class="search-bar">
+		<a href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
+		<div class="search-container">
+			<form action="" method="get">
+				<input type="text" placeholder="Search..." name="search">
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</form>
+		</div>
+	</div>
+
 	<div class="Register">
-		<div class="content">
+		<div id="form-container">
 				
 			<div class="logo"></div>	
-				<div class="login_form">
+			<div class="register_form">
 
 					<div class="login_title">
 							User Register 
@@ -22,50 +36,126 @@
 					{% if registered %}
 					<strong>Thanks for your registering</strong>
 					<a href="/users/login/">Return to the login page.</a>
+
 					{% else %}
-					<form id="user_form" action="/users/register/" method="post" enctype="multipart/form-data">
-						{% csrf_token %}
-						
-						{{ user_form.as_p }}
-						{{ profile_form.as_p }}
-						<!-- <div class="form_text_ipt">
-							<input name="username" type="text" placeholder="Username">
-						</div>
-						<div class="ececk_warning"><span>This can not be null</span></div>
+					<div class = "registerpart">
 
-						<div class="form_text_ipt">
-							<input name="password" type="password" placeholder="Password">
-						</div>
-						<div class="ececk_warning"><span>This can not be null</span></div> -->
+						<form id="user_form" action="/users/register/" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<ul class = "form-container">
+								<li>
+									<label for="id_username">Username:</label> 
+									<div class = "right">
+										<input type="text" name="username" maxlength="150" required id="id_username">
+									</div>
+								</li>
 
-						<!-- <div class="form_text_ipt">
-							<input name="email_id" type="email" placeholder="Email">
-						</div>
+								<li>
+									<label for="id_password">Password:</label> 
+									<div class = "right">
+										<input type="password" name="password" required id="id_password">
+									</div>
+								</li>
 
-						<div class="form_text_ipt">
-							<input name="picture" type="image" placeholder="picture">
-						</div>
+								<li>
+									<label for="id_email_id">Email id:</label>
+									<div>
+										<input type="text" name="email_id" maxlength="50" required id="id_email_id">
+									</div>
+								</li>
 
-						<div class="form_text_ipt">
-							<input name="breed" type="text" placeholder="breed">
-						</div>
-						<div class="ececk_warning"><span>This can not be null</span></div>
+								<li>
+									<label for="id_picture">Picture:</label>
+									<div class = "right">
+										<input type="file" name="picture" accept="image/*" id="id_picture">
+									</div>
+								</li>
 
-						<div class="form_text_ipt">
-							<input name="about_me" type="text" placeholder="About me">
-						</div>
-						<div class="ececk_warning"><span>This can not be null</span></div> -->
-							
-						<div class="form_btn">
-							<input type="submit" name="submit" value="Register" />
-						</div>
-						<div class="form_reg_btn">
-							<span>Have Account already?</span><a id = "loginpage" href="/users/login/">Login</a>
-						</div>
+								<li>
+									<label for="user_type">user_type:</label>
+									<div class = "right">
+										<select name="user_type" required id="id_user_type">
+											<option value="Cat Owner">Please choose</option>
+											<option value="Cat Owner">Cat Owner</option>
+											<option value="Cat Enthusiasts">Cat Enthusiasts</option>
+										</select>
+									</div>
+								</li>
+
+								<!-- <input type="hidden" name="user_type" maxlength="20"  value = "user"> -->
+								<li>
+									<label for="id_breeds">Breeds:</label> 
+									<div>
+										<input type="text" name="breeds" maxlength="100" required id="id_breeds">
+									</div>
+								</li>
+
+								<li>
+									<label for="id_about_me">About me:</label> 
+									<div class = "right">
+										<input name="about_me" cols="100" rows="6" maxlength="800" required id="id_about_me">
+									</div>
+								</li>
+		
+								
+								<!-- <form id="user_form" action="/users/register/" method="post" enctype="multipart/form-data">
+									{% csrf_token %}
+									
+									<div class = "username">
+										<label for="id_username">Username:</label> 
+										<input type="text" name="username" maxlength="150" required id="id_username">
+									</div>
+		
+									<div class = "password">
+										<label for="id_password">Password:</label> 
+										<input type="password" name="password" required id="id_password">
+									</div>
+		
+									<div class = "email">
+										<label for="id_email_id">Email id:</label>
+										<input type="text" name="email_id" maxlength="50" required id="id_email_id">
+									</div>
+		
+									<div class = "photo">
+										<label for="id_picture">Picture:</label>
+										<input type="file" name="picture" accept="image/*" id="id_picture">
+									</div>
+		
+									<div class = "usertype">
+										<label for="user_type">user_type:</label>
+										<select name="user_type" required id="id_user_type">
+											<option value="Cat Owner">Cat Owner</option>
+											<option value="Cat Enthusiasts">Cat Enthusiasts</option>
+										</select>
+									</div>
+		-->
+									<!-- <input type="hidden" name="user_type" maxlength="20"  value = "user"> -->
+									<!-- <div class ="breeds">
+										<label for="id_breeds">Breeds:</label> 
+										<input type="text" name="breeds" maxlength="100" required id="id_breeds">
+									</div>
+		
+									<div class = "aboutme">
+										<label for="id_about_me">About me:</label> 
+										<input name="about_me" cols="100" rows="6" maxlength="800" required id="id_about_me">
+									</div> -->
+								<li>
+									<div class = "SubmitArea">
+										<input type="submit" name="submit" value="Register" />
+										<input type="reset" name="reset" id="button2" value="Reset" />
+									</div>
+								</li>
+							</ul>
+
+							<div class="form_reg_btn">
+								<span>Have Account already?</span><a id = "loginpage" href="/users/login/">Login</a>
+							</div>
 					</form>
+						
+					</div>
 					{% endif %}
 
-				</div>
+			</div>
 		</div>
 	</div>
 

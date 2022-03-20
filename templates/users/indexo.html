@@ -11,6 +11,7 @@
 <!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../../static/css/index.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../../static/css/base.css" type="text/css" media="all" />
 <script src="../../static/js/jquery-1.4.1.min.js" type="text/javascript"></script>
 <script src="../../static/js/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="../../static/js/jquery.slide.js" type="text/javascript"></script>
@@ -82,14 +83,29 @@
         background: #ccc;
     }
 
+    .row{
+      margin-top: 20px;
+    }
+
     .column-two {
-        margin-top: 20px;
-        float: left;
-        width: 320px;
-        height: 640px;
+      border-right: 1px dashed;
+      margin-left: 200px;
+        /* margin-top: 20px; */
+        width: 400px;
+        height: 240px;
         padding: 15px;
         font-size: 18px;
+        border-right: 1px solid;
     }
+
+
+    .column-two img{
+      margin-left: 60px;
+      width: 200px;
+      border-radius: 100px;
+      height: 200px;
+    }
+
     .palbum {
       margin-top: 20px;
       position: absolute;
@@ -103,7 +119,7 @@
       
       float: left;
       width: 480px;
-      height: 320px;
+      height: 50px;
       font-size: 18px;
   }
 
@@ -150,7 +166,6 @@
         font-size: 17px;
         border-style: solid;
         width: 80%;
-        height: 100px;
         overflow: auto;
     }
 
@@ -171,14 +186,16 @@
     .gallery
     {
       margin-top: 18px;
-      margin-left: 10px;
+      margin-right: 60px;
       width:250px;
       height:250px;
     }
+
     .desc
     { margin-top: 8px;
       font-size: 18px;
     }
+
     .img
     {
       width:250px;
@@ -188,29 +205,30 @@
     .edito
     {
   
-  background-color:#4b4b4b;
-  border: none;
-  display: inline-block;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: #ccc;
-  font-size: 16px;
-  border-radius: 8px;
+      background-color:#4b4b4b;
+      border: none;
+      display: inline-block;
+      color: white;
+      padding: 15px 15px;
+      text-align: center;
+      text-decoration: none;
+      text-shadow: #ccc;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: -50px;
     }
 
   .addo
   {
-  background-color:#4b4b4b;
-  border: none;
-  display: inline-block;
-  color: white;
-  padding: 15px 41px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 8px;
+    background-color:#4b4b4b;
+    border: none;
+    display: inline-block;
+    color: white;
+    padding: 15px 41px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
   }
   .link
   {
@@ -257,6 +275,7 @@
               <img src="/media/cioran.jpg" alt="Picture of User" width="640" height="320"/>
             {% endif %}
           </div>
+
           <div class="column-two">
               <p><b>Name:</b> 
                 
@@ -325,6 +344,8 @@
             {% endif %}
           </div>
       </div>
+
+      
       {% if user_type == "Admin" %}
       {% else %}
       <div class="palbum">

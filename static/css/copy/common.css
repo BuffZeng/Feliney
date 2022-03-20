@@ -4,7 +4,9 @@
 	background: #1e1b29;
 	border-bottom: solid 4px red;
 }
-
+.member_wrap{
+	
+}
 .header_item{
 	overflow: hidden;
 }
@@ -61,11 +63,41 @@
 }
 
 
+.nav_box{
+	margin-top: 50px;
+}
+.nav_box ul {
+	overflow: hidden;
+}
+.nav_box ul li{
+	display: block;
+	padding: 0 20px;
+}
+.nav_box ul li a{
+	color: #fff;
+	font-size: 16px;
+}
+.nav_box ul li a:hover{
+	color: red;
+}
 
+
+
+.Register{
+	background: url(../../static/images/bg.jpg);
+	height: 600px;
+	background-size: 100%;
+}
+
+.logo{
+	width: 100px;
+	height: 100px;
+	margin: 0px auto;
+	background: url(../../static/images/logo.png) no-repeat center;
+}
 
 .login_form{
 	width: 360px;
-	height: 400px;
 	background: #FFFFFF;
 	margin: 0px auto;
 	background: rgba(203, 231, 218, 0.6);
@@ -97,6 +129,7 @@
 	height: 30px;
 	margin: 5px;
 	border: none;
+	font-family: "微软雅黑";
 	font-size: 15px;
 	color: #666;
 }
@@ -107,19 +140,10 @@
 	position: relative;
 	top: 2px;
 }
-
 .form_btn{
 	width: 300px;
 	height: 40px;
-	margin:  20px auto;
-	float: left;
-	margin-left: 250px;
-}
-
-.register, .submit{
-	background-color: #AEEEEE;
-	float: left;
-	width: 50px;
+	margin:  10px auto;
 }
 .form_btn button{
 	width: 100%;
@@ -130,7 +154,12 @@
 	background: #FF7F50;
 	cursor: pointer;
 }
-
+.form_reg_btn{
+	width: 300px;
+	margin: -10px auto;
+	font-size: 14px;
+	color: #666;
+}
 
 #loginpage{
 	margin-left: 20px;
@@ -153,58 +182,7 @@
 	color:#636363;
 }
 
-.action{
-	margin-top: 20px;
+.other_right a:hover{
+	color:#AEEEEE;
 }
 
-/*all page using search*/
-.search-bar {
-	width: 100%;
-	background-color: #4b4b4b;
-	overflow: auto;
-}
-
-.search-bar a {
-	float: left;
-	text-align: center;
-	padding: 14px;
-	color: white;
-	text-decoration: none;
-	font-size: 17px;
-}
-
-.search-bar a:hover {
-	background-color: rgb(39, 39, 39);
-}
-
-.active {
-  background-color: #04AA6D;
-}
-
-.search-bar .search-container {
-	float: right;
-}
-
-.search-bar input[type=text] {
-	padding: 6px;
-	margin-top: 8px;
-	margin-right: 16px;
-	font-size: 17px;
-	border: none;
-	width: 500px;
-}
-
-.search-bar .search-container button {
-	float: right;
-	padding: 6px 10px;
-	margin-top: 8px;
-	margin-right: 16px;
-	background: #ddd;
-	font-size: 17px;
-	border: none;
-	cursor: pointer;
-}
-
-.search-bar .search-container button:hover {
-	background: #ccc;
-}

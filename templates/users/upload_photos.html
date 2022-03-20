@@ -11,6 +11,7 @@
 <!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../../static/css/index.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../../static/css/base.css" type="text/css" media="all" />
 <script src="../../static/js/jquery-1.4.1.min.js" type="text/javascript"></script>
 <script src="../../static/js/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="../../static/js/jquery.slide.js" type="text/javascript"></script>
@@ -69,7 +70,7 @@
 
     .photo_gallery {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       width:800px;
       height:200px    
   }
@@ -78,12 +79,13 @@
           display: inline-block;
           height: 200px;
           width: 200px;
+          padding-right: 10px;
       }
   
     .photo_gallery img {
-          object-fit: cover;
-          height: 400px;
-          width: 400px;
+          height: 200px;
+          width: 200px;
+          padding-right: 10px;
       }
 
     .search-bar .search-container button {
@@ -104,6 +106,7 @@
     .column-two {
         margin-top: 20px;
         float: right;
+        margin-right: 100px;
         
         width: 520px;
         height: 680px;
@@ -273,6 +276,7 @@
                 </form>
             </div>
         </div>
+        
         <div class="row">
           <div class="column-three">
             <h2>Photo Album</h2>
@@ -280,7 +284,9 @@
             <section class="photo_gallery">
             
               {% for gallery_image in cato %}
-              <a href="{{gallery_image}}"><img src="{{gallery_image}}" alt="{{gallery_image}}" title=""/></a>
+              <div class = "photowall">
+                <a href="{{gallery_image}}"><img src="{{gallery_image}}" alt="{{gallery_image}}" title=""/></a>
+              </div>
               {% endfor %}
           </section>
           </div>

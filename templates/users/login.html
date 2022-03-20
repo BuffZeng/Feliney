@@ -8,6 +8,7 @@
 
     <meta charset="utf-8">
     <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="../../static/css/formstyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 
@@ -18,115 +19,11 @@
             background: url(../../static/images/bg.jpg);
             background-size: 100%;
         }
-
-        .column-two {
-            margin-top: 20px;
-            float: left;
-            width: 45%;
-            padding: 15px;
-            font-size: 18px;
-        }
-
-        .column-three {
-            margin-top: 20px;
-            float: left;
-            width: 30%;
-            padding: 15px;
-            font-size: 18px;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        .comment {
-            float: left;
-            width: 100%;
-            
-        }
-
-        .comment h2 {
-            margin-left: 50px;
-            font-size: 30px;
-        }
-        .comment p {
-            padding: 10px;
-            margin-top: 8px;
-            margin-left: 80px;
-            margin-right: 80px;
-            font-size: 17px;
-            border-style: solid;
-            height: 100px;
-            overflow: auto;
-        }
-
-        .comment textarea {
-            padding: 10px;
-            margin-top: 8px;
-            margin-left: 80px;
-            margin-right: 80px;
-            font-size: 17px;
-            border-style: solid;
-            width: 80%;
-            height: 100px;
-            overflow: auto;
-        }
-
-        .comment button {
-            float: right;
-            padding: 6px 10px;
-            margin-top: 8px;
-            margin-right: 80px;
-            background: #ddd;
-            font-size: 17px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .comment button:hover {
-            background: #ccc;
-        }
-
-        .login-form {
-            background: rgba(165, 173, 169, 0.6);
-            width: 500px;
-            margin: 65px auto;
-            display: -webkit-box;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                    flex-direction: column;
-            border-radius: 4px;
-            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .login-form .content {
-            padding: 35px;
-            text-align: center;
-        }
-        .login-form .input-field {
-            padding: 12px 5px;
-        }
-        .login-form .input-field input {
-            font-size: 16px;
-            display: block;
-            font-family: 'Rubik', sans-serif;
-            width: 100%;
-            padding: 10px 1px;
-            border: 0;
-            border-bottom: 1px solid #747474;
-            outline: none;
-            -webkit-transition: all .2s;
-            transition: all .2s;
-        }
-       
-        .login-form .input-field input:focus {
-            border-color: #222;
-        }
+  
 
         .login-form .action {
+            margin-top: 100px;
+            width: 100%;
             display: -webkit-box;
             display: flex;
             -webkit-box-orient: horizontal;
@@ -213,15 +110,10 @@
         .search-bar .search-container button:hover {
             background: #ccc;
         }
-    
 
     </style>
 
     <body>
-        <div class="header">
-            <h1>Login</h1>
-        </div>
-
         <div class="search-bar">
             <a href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
             <div class="search-container">
@@ -232,27 +124,32 @@
             </div>
         </div>
 
-        <div class="login-form">
-            <form action="{% url 'users:login' %}" method="post">
-                {% csrf_token %}
+        <div class = "Login">
+            <div class="logo"></div>
+            <p>User Login</p>
+            <div class="login-form">
+                    <form action="{% url 'users:login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <label for="id_username">Username:</label>
+                            <input type="text" placeholder="Username" name="username" autocomplete="nope">
+                        </div>
+    
+                        <div class="input-field">
+                            <label for="id_password">password:</label>
+                            <input type="password" placeholder="Password" name="password" autocomplete="new-password">
+                        </div>
 
-                <div class="content">
-                    <div class="input-field">
-                      <input type="text" placeholder="Username" name="username" autocomplete="nope">
-                    </div>
+                        <div class="action">
+                            <button type="button" onclick="javascript:window.location.href='/users/register/'">Register</button>
+                            <button type="submit" value="Submit">Submit</button>
+                        </div>
+        
+                    </form> 
+            </div>       
 
-                    <div class="input-field">
-                      <input type="password" placeholder="Password" name="password" autocomplete="new-password">
-                    </div>
-                </div>
-
-                  <div class="action">
-                    <button type="button" onclick="javascript:window.location.href='/users/register/'">Register</button>
-                    <button><input type="submit" value="Submit"></button>
-                  </div>
-
-            </form> 
-          </div>
+        </div>
+      
         
     </body>
 </html>

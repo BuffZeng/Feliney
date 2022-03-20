@@ -9,22 +9,14 @@
 
 <meta charset="utf-8">
 <!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="../../static/css/index.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../../static/css/base.css" type="text/css" media="all" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
 
     body {
     margin: 0;
-    }
-
-    .header {
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .div {
-        margin-right: 50px;
-        margin-left: 50px;
     }
 
     .search-bar {
@@ -86,12 +78,108 @@
         font-size: 18px;
     }
 
-    .column-three {
+    .column-two p{
+        margin-bottom: 10px;
+    } 
+
+    .catimage{
         margin-top: 20px;
         float: left;
-        width: 30%;
+        width: 400px;
+        height: 400px;
         padding: 15px;
+    }
+
+    .catInfo_1,  .catInfo_2{
+        margin: 20px;
+        width: auto;
+        height: 40px;
+        border-bottom-style: groove;
+
+    }
+
+    .catInfo_3{
+        margin: 20px;
+        width: auto;
+        height: 160px;
+        border-bottom-style: groove;
+    }
+
+    .catInfo_1 b,.catInfo_2 b,.catInfo_3 b{
+        float: left;
+      }
+
+
+    .breeds, .price{
+          margin-left: 50px;
+          float: left;
+          
+    }
+
+    .description{
+        margin-top: 10px;
+        line-height: 22px;
+    }
+
+    .score, .metric{
+        float: left;
+        margin-right: 20px;
+    }
+
+    .rating{
+        width: auto;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    .rating_1{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+
+    .column-three{
+        margin-right: 50px;
+        float: left;
         font-size: 18px;
+    }
+
+    #RatingCatForm{
+        border-bottom: 1px solid;
+        padding-top: 20px;
+        height: auto;
+        width: 95%;
+        float: left;
+    }
+
+    #RatingCatForm input{
+        margin-left: 20px;
+        height: 25px;
+        width: 200px;
+        border-radius: 5px;
+        border-style:groove;
+        float: left;
+    }
+
+    .existing{
+        margin-top: 20px;
+        margin-left: 60px;
+        width: 95%;
+        height: auto;
+        border:1px solid;
+    }
+
+    .Commenttitle{
+        padding-bottom: 10px;
+        margin-top: 20px;
+        font-size: 20px;
+        border-bottom: 1px solid;
+    }
+
+
+    .row{
+        margin-left: 60px;
+        height: auto;
     }
 
     .row:after {
@@ -101,35 +189,47 @@
     }
 
     .comment {
+        margin-top: 30px;
         float: left;
         width: 100%;
+        height: auto;
         
     }
 
-    .comment h2 {
-        margin-left: 50px;
-        font-size: 30px;
+    .comment_1, .comment_2{
+        width: 100%;
+        margin-left: 10px;
+        margin-top: 30px;
+        font-size: 20px;
+        
     }
+    .comment_1{
+        width: 95%;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed;
+    }
+
+    h2 {
+        color: #04AA6D;
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+    .comment h2{
+        margin-left: 60px;
+    }
+
     .comment p {
-        padding: 10px;
-        margin-top: 8px;
-        margin-left: 80px;
-        margin-right: 80px;
-        font-size: 17px;
-        border-style: solid;
-        height: 100px;
-        overflow: auto;
+        padding-left: 10px;
     }
 
     .comment textarea {
         padding: 10px;
-        margin-top: 8px;
-        margin-left: 80px;
-        margin-right: 80px;
+        margin-top: 18px;
+        margin-left: 60px;
+        margin-right: 50px;
         font-size: 17px;
-        border-style: solid;
-        width: 80%;
-        height: 100px;
+        width: 90%;
+        height: 50px;
         overflow: auto;
     }
 
@@ -138,7 +238,7 @@
         padding: 6px 10px;
         margin-top: 8px;
         margin-right: 80px;
-        background: #ddd;
+        background: #04AA6D;
         font-size: 17px;
         border: none;
         cursor: pointer;
@@ -153,8 +253,14 @@
     <body>
 
         <div class="header">
-            <h1>Feliney</h1>
-        </div>
+            <div id = "logo">
+              <img src="../../static/images/logo.png" alt="" />
+            </div>
+            <div id = "sitename">
+              <h1>Feliney</h1>
+            </div>
+          </div>
+
         <div class="search-bar">
             <a class="active" href="{% url 'users:home_page' %}"><i class="fa fa-home"></i> Home</a>
             {% if user.is_authenticated %}
@@ -176,32 +282,48 @@
 
         {% if cat %}
         <div class="row">
-            <div class="column-two">
+
+            <div class="catimage">
                 <img class="cat-img" src="/media/{{cat.slug}}.jpeg" alt="Picture of cat." width="640" height="360"/>
             </div>
+
             <div class="column-two">
-                <b>Name:</b> 
-                    {{cat.breed}}
-                <br><b>Range:</b> 
-                    {{cat.price_range}}
-                <br><b>Description:</b> 
-                    {{cat.description}}
+                <div class = "catInfo_1">
+                    <b>Name:</b> 
+                    <div class= "breeds">{{cat.breed}}</div>
+                </div>
+                
+                <div class = "catInfo_2">
+                    <b>Range:</b>  
+                    <div class = "price">{{cat.price_range}}</div>
+                </div>
+
+                <div class = "catInfo_3">
+                    <b>Description:</b>  
+                    <div class = "description">{{cat.description}}</div>
+                </div>
+                    
             </div>
         </div>
 
         <div class="row">
-            <div class="column-three">
-                Tidiness
-                {{cat.tidiness}}
+            <div class = "rating">
+                <h2>Scores in three metrics:</h2>
+                <div class="rating_1">
+                    <div class = "metric">Tidiness</div>
+                    <div class = "score">{{cat.tidiness}}</div>
+                </div>
+
+                <div class="rating_1">
+                    <div class = "metric"> Friendliness</div>
+                    <div class = "score">{{cat.friendliness}}</div>  
+                </div>
+                <div class="rating_1">
+                    <div class = "metric">Fussiness</div>
+                    <div class = "score">{{cat.fussiness}}</div> 
+                </div>
             </div>
-            <div class="column-three">
-                Friendliness
-                {{cat.friendliness}}
-            </div>
-            <div class="column-three">
-                Fussiness
-                {{cat.fussiness}}
-            </div>
+
             {% if user.is_authenticated %}
             <form id="RatingCatForm" method="post" action="">
                 {% csrf_token %}
@@ -212,40 +334,80 @@
                     {{ field.errors }}
                     {{ field }}
                 {% endfor %}
-            <div class="column-three">
-                Tidiness
-                <input type="text" name="tidiness" placeholder="Tidiness">
-            </div>
-            <div class="column-three">
-                Friendliness
-                <input type="text" name="friendliness" placeholder="Friendliness">
-            </div>
-            <div class="column-three">
-                Fussiness
-                <input type="text" name="fussinessc" placeholder="Fussiness">
-            </div>
-            <input type="submit" value="submit">
+
+                <div class="column-three">
+                    <p>Give Your Rating:</p>
+                </div>
+
+                <div class="column-three">
+                    <label>Tidiness</label>
+                    <select type="text" name="tidiness" placeholder="Tidiness">
+                        <option>  1  </option>
+                        <option>  2  </option>
+                        <option>  3  </option>
+                        <option>  4  </option>
+                        <option>  5  </option>
+                    </select>
+                </div>
+
+                <div class="column-three">
+                    <label>Friendliness</label>
+                    <select type="text" name="friendliness" placeholder="friendliness">
+                        <option>  1  </option>
+                        <option>  2  </option>
+                        <option>  3  </option>
+                        <option>  4  </option>
+                        <option>  5  </option>
+                    </select>
+                </div>
+
+                <div class="column-three">
+                    <label>Fussiness</label>
+                    <select type="text" name="fussinessc" placeholder="fussinessc">
+                        <option>  1  </option>
+                        <option>  2  </option>
+                        <option>  3  </option>
+                        <option>  4  </option>
+                        <option>  5  </option>
+                    </select>
+                </div>
+
+                <input type="submit" value="submit">
+
             </form>
             {% else %}
             {% endif %}
         </div>
 
+
         <div class="comment">
             <h2>Comment</h2>
             {% if comment %}
+            <div class = "existing">
+                <div class = "Commenttitle"><p>Existing Comment(s)</p></div>
                 {% for com in comment %}
+                <div class = "comment_1">
                     <i class="fa fa-user"></i> {{com.uid}}<br>
-                        <br>&emsp;&emsp;{{com.description}}
+                     <br>&emsp;&emsp;{{com.description}}
 
-                    <br><form method="POST" action="{% url 'cats:show_cat' slugo %}" enctype="multipart/form-data">
+                </div>
+
+                <div class = "comment_2">
+                    <form method="POST" action="{% url 'cats:show_cat' slugo %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         <input type="hidden" name="como" value="{{com.description}}">
                         {% if user_type == "Admin" %}
                     <input class="edito" type="submit" name="Select" value="Delete">
                     {% endif %}
+                  
                 </form>
+                </div> 
+
+           
+                
                     
                 {% endfor %}
+            </div>
             {% endif %}
             
             {% if user.is_authenticated %}
@@ -255,7 +417,7 @@
                     {{ field.errors }}
                     {{ field.help_text }}
                     {{ field }}
-                {% endfor %}
+                {% endfor%}
                 <textarea name="comment" placeholder="Type your comment..."></textarea>
                 <button type="submit">submit</button>
             </form>
