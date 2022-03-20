@@ -1,4 +1,3 @@
-from tkinter import Widget
 from django.forms import HiddenInput, ModelForm,Textarea
 from django.contrib.auth.models import User
 from django import forms
