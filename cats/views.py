@@ -61,6 +61,12 @@ def show_cat(request, cat_name_slug):
             rato.fusiness=f
             # save the score inside the database
             rato.save()
+        rateexist=CatRatings.objects.filter(uid=request.user.userprofile.uid,cid=CatProfile.objects.get(slug=cat_name_slug).cid).count()
+        if rateexist>0:
+            showrform='yes'
+        else:
+            showrform='no'
+        context_dic['showrform']=showrform
 
     # get cat's slug name
     context_dic['slugo']=cat_name_slug
