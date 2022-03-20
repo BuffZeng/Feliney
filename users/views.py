@@ -167,25 +167,26 @@ def home_page(request):
     maxc=CatProfile.objects.all().order_by("-cid")[0].cid
     for x in range(1,maxc+1):
         # get all users rating
-        votes=CatRatings.objects.filter(cid=x).count()
-        if votes==0:
-            # if no rating, all score remain in default as 3.0
-            catins=CatProfile.objects.get(cid=x)
-            catins.friendliness=3.0
-            catins.tidiness=3.0
-            catins.fussiness=3.0
-            catins.save()
-        else:
-            # calculate the score of each attribute.
-            catfriend= round((CatRatings.objects.filter(cid=x).aggregate(Sum('friendliness'))['friendliness__sum'])/votes,2)
-            cattidy= round((CatRatings.objects.filter(cid=x).aggregate(Sum('tidiness'))['tidiness__sum'])/votes,2)
-            catfusy= round((CatRatings.objects.filter(cid=x).aggregate(Sum('fusiness'))['fusiness__sum'])/votes,2)
-            catres= CatProfile.objects.get(cid=x)
-            catres.friendliness=catfriend
-            catres.tidiness=cattidy
-            catres.fussiness=catfusy
-            # save all data into the database
-            catres.save()
+        catexis=CatProfile.objects.filter(cid=x).count()
+        if catexis>0:
+            votes=CatRatings.objects.filter(cid=x).count()
+            if votes==0:
+                # if no rating, all score remain in default as 3.0
+                catins=CatProfile.objects.get(cid=x)
+                catins.friendliness=3.0
+                catins.tidiness=3.0
+                catins.fussiness=3.0
+                catins.save()
+            else:
+                # calculate the score of each attribute.
+                catfriend= round((CatRatings.objects.filter(cid=x).aggregate(Sum('friendliness'))['friendliness__sum'])/votes,2)
+                cattidy= round((CatRatings.objects.filter(cid=x).aggregate(Sum('tidiness'))['tidiness__sum'])/votes,2)
+                catfusy= round((CatRatings.objects.filter(cid=x).aggregate(Sum('fusiness'))['fusiness__sum'])/votes,2)
+                catres= CatProfile.objects.get(cid=x)
+                catres.friendliness=catfriend
+                catres.tidiness=cattidy
+                catres.fussiness=catfusy
+                catres.save()
     context_dic = {}
     # get four type of ranking: general, friendliness, fussiness, tidiness
     context_dic['general'] = CatProfile.objects.order_by('-friendliness', '-fussiness', '-tidiness')[:8]
