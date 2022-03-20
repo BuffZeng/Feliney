@@ -324,8 +324,8 @@
                 </div>
             </div>
 
-            {% if user.is_authenticated %}
-            <form id="RatingCatForm" method="post" action="">
+            {% if user.is_authenticated and showrform == "no" %}
+            <form id="RatingCatForm" method="post" action="{% url 'cats:show_cat' slugo %}">
                 {% csrf_token %}
                 {% for hidden in ratingform.hidden_fields %}
                     {{ hidden }}
