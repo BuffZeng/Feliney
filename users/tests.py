@@ -1,7 +1,6 @@
 
 from django.test import TestCase
 from django.urls import reverse
-from django.test import RequestFactory
 from django.contrib.auth.models import User
 from datetime import datetime
 from users.models import UserProfile
@@ -11,7 +10,6 @@ from cats.models import CatProfile
 
 class Coms(TestCase):
     def setUp(self):
-        self.factory = RequestFactory()
         self.login_url = reverse('users:login')
         self.catadd_url= reverse('users:add_cat')
         self.all_coments_url = reverse('users:all_coments')
